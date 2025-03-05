@@ -1,20 +1,31 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Image from "next/image";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 
 function DashboardContent() {
   // Carousel settings
-  const settings = {
-    // Visa punkter för navigation
-    infinite: true, // Oändlig loop
-    speed: 500, // Hastighet för övergång
+  const [sliderRef, instanceRef] = useKeenSlider({
+    loop: true,
+    slides: { perView: 1 }, // Visa en slide i taget
+    duration: 1000, // Övergångstid
     autoplay: true, // Automatisk uppspelning
-    autoplaySpeed: 3000, // Tid mellan övergångar
-    slidesToShow: 1, // Antal slides som visas
-    slidesToScroll: 1, // Antal slides som scrollas vid navigering
-  };
+    interval: 3000, // Tid mellan bilder
+    breakpoints: {
+      "(min-width: 640px)": {
+        slides: { perView: 1 }, // Flera vyer för mindre skärmar
+      },
+    },
+  });
+
+  // Automatisk scroll
+  useEffect(() => {
+    const interval = setInterval(() => {
+      instanceRef.current?.next();
+    }, 3000); // 3000ms = 3 sekunder
+    return () => clearInterval(interval);
+  }, [instanceRef]);
+
 
   return (
     <div className="grid grid-cols-4 grid-rows-8 gap-4 h-full p-4">
@@ -28,29 +39,32 @@ function DashboardContent() {
 
       {/* Box 1 */}
       <div className="col-span-3 row-span-4 bg-blue-400 rounded-lg overflow-hidden">
-        <Slider {...settings} className="w-full h-full">
-          <div className="w-full h-full">
-            <img
+        <div ref={sliderRef} className="keen-slider h-full w-full">
+          <div className="keen-slider__slide relative w-full h-full">
+            <Image
               src="/Food.jpg"
               alt="Slide 1"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
           </div>
-          <div className="w-full h-full">
-            <img
+          <div className="keen-slider__slide relative w-full h-full">
+            <Image
               src="/Mind.jpg"
               alt="Slide 2"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
           </div>
-          <div className="w-full h-full">
-            <img
+          <div className="keen-slider__slide relative w-full h-full">
+            <Image
               src="/Yolk.jpg"
               alt="Slide 3"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
           </div>
-        </Slider>
+        </div>
       </div>
 
       {/* Box 2 */}
