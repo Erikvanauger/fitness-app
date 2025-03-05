@@ -13,6 +13,10 @@ export default {
         foreground: "var(--foreground)",
         themegreen: "#9FFFAB",
         navselect: "#6FB878",
+        mainbg:"#E9FFFC",
+      },
+      fontFamily: {
+        sans: ["Poppins", ],
       },
     },
   },

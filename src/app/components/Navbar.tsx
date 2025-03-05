@@ -28,45 +28,45 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView }) => {
       <button 
           onClick={() => handleViewChange("dashboard")} 
           className={`flex items-center justify-center p-4 transition-[width] duration-400 ease-in-out 
-          ${activeView === "dashboard" ? "bg-navselect w-[160px] rounded-r-full" : "hover:bg-navselect w-full"}
+          ${activeView === "dashboard" ? "bg-navselect w-[140px] rounded-r-full" : "hover:bg-navselect w-full"}
           `}>
           <House size={40} />
         </button>
 
         <button 
           onClick={() => handleViewChange("calories")} 
-          className={`flex items-center justify-center p-4 mt-8 transition-[width] duration-400 ease-in-out
-          ${activeView === "calories" ? "bg-navselect w-[160px] rounded-r-full" : "hover:bg-navselect w-full"}
+          className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out
+          ${activeView === "calories" ? "bg-navselect w-[140px] rounded-r-full" : "hover:bg-navselect w-full"}
           `}>
           <ChartNetwork size={40} />
         </button>
 
         <button 
           onClick={() => handleViewChange("calendar")} 
-          className={`flex items-center justify-center p-4 mt-8 transition-[width] duration-400 ease-in-out
-          ${activeView === "calendar" ? "bg-navselect w-[160px] rounded-r-full" : "hover:bg-navselect w-full"}
+          className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out
+          ${activeView === "calendar" ? "bg-navselect w-[140px] rounded-r-full" : "hover:bg-navselect w-full"}
           `}>
           <CalendarHeart size={40} />
         </button>
       </div>
 
       {/* Split line */}
-      <div className="border-t border-black my-16 mx-6"></div>
+      <div className="border border-black/40 my-12 mx-6"></div>
 
       
       <div className="flex flex-col gap-2">
       <button 
           onClick={() => handleViewChange("notifications")} 
-          className={`flex items-center justify-center p-4 mt-8 transition-[width] duration-400 ease-in-out
-          ${activeView === "notifications" ? "bg-navselect w-[160px] rounded-r-full" : "hover:bg-navselect w-full"}
+          className={`flex items-center justify-center p-4 transition-[width] duration-400 ease-in-out
+          ${activeView === "notifications" ? "bg-navselect w-[140px] rounded-r-full" : "hover:bg-navselect w-full"}
           `}>
           <Bell size={40} />
         </button>
 
         <button 
           onClick={() => handleViewChange("settings")} 
-          className={`flex items-center justify-center p-4 mt-8 transition-[width] duration-400 ease-in-out
-          ${activeView === "settings" ? "bg-navselect w-[160px] rounded-r-full" : "hover:bg-navselect w-full"}
+          className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out
+          ${activeView === "settings" ? "bg-navselect w-[140px] rounded-r-full" : "hover:bg-navselect w-full"}
           `}>
           <Settings size={40} />
         </button>

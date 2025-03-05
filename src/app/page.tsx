@@ -15,10 +15,10 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-background ">
+    <div className="flex flex-col items-center justify-center h-screen bg-[url('/Bg.jpg')] bg-cover bg-center">
       {!isLoggedIn ? (
         <>
-          <div className=" bg-black w-[98%] h-[97%] rounded-[50px]">
+          <div className=" bg-black w-[98%] h-[98%] rounded-[50px]">
             <div className="flex flex-col items-center justify-center h-full">
               <h1 className="text-2xl font-bold">Logga in</h1>
               <input

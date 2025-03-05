@@ -28,7 +28,7 @@ export function Dashboard() {
   };
 
   return (
-      <div className="flex h-[98%] w-[98%] bg-black rounded-[60px]">
+      <div className="flex h-[98%] w-[98%] bg-mainbg rounded-[60px]">
         <Navbar setCurrentView={setCurrentView} />
         <main className="flex-1 p-4">
           {renderContent()}
