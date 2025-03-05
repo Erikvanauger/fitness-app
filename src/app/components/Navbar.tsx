@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import {House, ChartNetwork, CalendarHeart, Bell, Settings, LogOut} from "lucide-react"
 
@@ -7,40 +7,72 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ setCurrentView }) => {
+  
+  const [activeView, setActiveView] = useState<string>("dashboard"); // Spårar vilken knapp som är vald
+
+  const handleViewChange = (view: string) => {
+    setActiveView(view);
+    setCurrentView(view);
+  };
+
+
+
   return (
-    <nav className="w-[130px] flex flex-col bg-themegreen p-6 text-black rounded-tl-[40px] rounded-bl-[40px]">
+    <nav className="w-[130px] flex flex-col bg-themegreen text-black rounded-tl-[60px] rounded-bl-[60px]">
       
-      <div className="mb-4 flex justify-center w-full">
+      <div className=" flex justify-center w-full px-6 pt-6 ">
         <Image src="/FBicon.png" alt="Logo" width={100} height={100} /> 
       </div>
       
-      <div className="flex flex-col gap-2">
-        <button onClick={() => setCurrentView("dashboard")} className="flex items-center justify-center">
+      <div className="flex flex-col gap-2 mt-16">
+      <button 
+          onClick={() => handleViewChange("dashboard")} 
+          className={`flex items-center justify-center p-4 transition-[width] duration-400 ease-in-out 
+          ${activeView === "dashboard" ? "bg-navselect w-[160px] rounded-r-full" : "hover:bg-navselect w-full"}
+          `}>
           <House size={40} />
         </button>
-        <button onClick={() => setCurrentView("calories")} className="flex items-center justify-center">
+
+        <button 
+          onClick={() => handleViewChange("calories")} 
+          className={`flex items-center justify-center p-4 mt-8 transition-[width] duration-400 ease-in-out
+          ${activeView === "calories" ? "bg-navselect w-[160px] rounded-r-full" : "hover:bg-navselect w-full"}
+          `}>
           <ChartNetwork size={40} />
         </button>
-        <button onClick={() => setCurrentView("calendar")} className="flex items-center justify-center">
+
+        <button 
+          onClick={() => handleViewChange("calendar")} 
+          className={`flex items-center justify-center p-4 mt-8 transition-[width] duration-400 ease-in-out
+          ${activeView === "calendar" ? "bg-navselect w-[160px] rounded-r-full" : "hover:bg-navselect w-full"}
+          `}>
           <CalendarHeart size={40} />
         </button>
       </div>
 
       {/* Split line */}
-      <div className="border-t border-black my-4"></div>
+      <div className="border-t border-black my-16 mx-6"></div>
 
       
       <div className="flex flex-col gap-2">
-        <button onClick={() => setCurrentView("notifications")} className="flex items-center justify-center">
+      <button 
+          onClick={() => handleViewChange("notifications")} 
+          className={`flex items-center justify-center p-4 mt-8 transition-[width] duration-400 ease-in-out
+          ${activeView === "notifications" ? "bg-navselect w-[160px] rounded-r-full" : "hover:bg-navselect w-full"}
+          `}>
           <Bell size={40} />
         </button>
-        <button onClick={() => setCurrentView("settings")} className="flex items-center justify-center">
+
+        <button 
+          onClick={() => handleViewChange("settings")} 
+          className={`flex items-center justify-center p-4 mt-8 transition-[width] duration-400 ease-in-out
+          ${activeView === "settings" ? "bg-navselect w-[160px] rounded-r-full" : "hover:bg-navselect w-full"}
+          `}>
           <Settings size={40} />
         </button>
       </div>
 
-      
-      <button onClick={() => setCurrentView("logout")} className="flex items-center justify-center mt-auto">
+      <button onClick={() => setCurrentView("logout")} className="flex items-center justify-center mt-auto mb-12 p-4">
         <LogOut size={40} />
       </button>
     </nav>

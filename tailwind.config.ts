@@ -12,6 +12,7 @@ export default {
         background: "#373737",
         foreground: "var(--foreground)",
         themegreen: "#9FFFAB",
+        navselect: "#6FB878",
       },
     },
   },
