@@ -18,7 +18,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView }) => {
 
 
   return (
-    <nav className="w-[130px] flex flex-col bg-themegreen text-black rounded-tl-[60px] rounded-bl-[60px]">
+    <nav className="w-[100px] flex flex-col bg-themegreen text-black rounded-tl-[60px] rounded-bl-[60px]">
       
       <div className=" flex justify-center w-full px-6 pt-6 ">
         <Image src="/FBicon.png" alt="Logo" width={100} height={100} /> 
@@ -28,25 +28,25 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView }) => {
       <button 
           onClick={() => handleViewChange("dashboard")} 
           className={`flex items-center justify-center p-4 transition-[width] duration-400 ease-in-out 
-          ${activeView === "dashboard" ? "bg-navselect w-[140px] rounded-r-full" : "hover:bg-navselect w-full"}
+          ${activeView === "dashboard" ? "bg-navselect w-[120px] rounded-r-full" : "hover:bg-navselect w-full"}
           `}>
-          <House size={40} />
+          <House size={30} />
         </button>
 
         <button 
           onClick={() => handleViewChange("calories")} 
           className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out
-          ${activeView === "calories" ? "bg-navselect w-[140px] rounded-r-full" : "hover:bg-navselect w-full"}
+          ${activeView === "calories" ? "bg-navselect w-[120px] rounded-r-full" : "hover:bg-navselect w-full"}
           `}>
-          <ChartNetwork size={40} />
+          <ChartNetwork size={30} />
         </button>
 
         <button 
           onClick={() => handleViewChange("calendar")} 
           className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out
-          ${activeView === "calendar" ? "bg-navselect w-[140px] rounded-r-full" : "hover:bg-navselect w-full"}
+          ${activeView === "calendar" ? "bg-navselect w-[120px] rounded-r-full" : "hover:bg-navselect w-full"}
           `}>
-          <CalendarHeart size={40} />
+          <CalendarHeart size={30} />
         </button>
       </div>
 
@@ -58,22 +58,22 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView }) => {
       <button 
           onClick={() => handleViewChange("notifications")} 
           className={`flex items-center justify-center p-4 transition-[width] duration-400 ease-in-out
-          ${activeView === "notifications" ? "bg-navselect w-[140px] rounded-r-full" : "hover:bg-navselect w-full"}
+          ${activeView === "notifications" ? "bg-navselect w-[120px] rounded-r-full" : "hover:bg-navselect w-full"}
           `}>
-          <Bell size={40} />
+          <Bell size={30} />
         </button>
 
         <button 
           onClick={() => handleViewChange("settings")} 
           className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out
-          ${activeView === "settings" ? "bg-navselect w-[140px] rounded-r-full" : "hover:bg-navselect w-full"}
+          ${activeView === "settings" ? "bg-navselect w-[120px] rounded-r-full" : "hover:bg-navselect w-full"}
           `}>
-          <Settings size={40} />
+          <Settings size={30} />
         </button>
       </div>
 
       <button onClick={() => setCurrentView("logout")} className="flex items-center justify-center mt-auto mb-12 p-4">
-        <LogOut size={40} />
+        <LogOut size={30} />
       </button>
     </nav>
   );
