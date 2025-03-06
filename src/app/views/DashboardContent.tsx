@@ -7,25 +7,21 @@ function DashboardContent() {
   // Carousel settings
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
-    slides: { perView: 1 }, // Visa en slide i taget
-    duration: 1000, // Övergångstid
-    autoplay: true, // Automatisk uppspelning
-    interval: 3000, // Tid mellan bilder
+    slides: { perView: 1 },
+    dragSpeed: 0.5, // Justerar hur snabbt användaren kan dra
     breakpoints: {
       "(min-width: 640px)": {
-        slides: { perView: 1 }, // Flera vyer för mindre skärmar
+        slides: { perView: 1 },
       },
     },
   });
-
   // Automatisk scroll
   useEffect(() => {
     const interval = setInterval(() => {
       instanceRef.current?.next();
-    }, 3000); // 3000ms = 3 sekunder
+    }, 4000); 
     return () => clearInterval(interval);
   }, [instanceRef]);
-
 
   return (
     <div className="grid grid-cols-4 grid-rows-8 gap-4 h-full p-4">
