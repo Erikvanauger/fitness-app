@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+import { ArrowRight, Star, MessageSquareHeart, Sun } from "lucide-react";
 
 function DashboardContent() {
   const slides = [
@@ -59,21 +60,29 @@ function DashboardContent() {
   }, [instanceRef]);
 
   return (
-    <div className="grid grid-cols-4 grid-rows-8 gap-4 h-full p-4">
+    <div className="grid grid-cols-4 grid-rows-8 gap-4 h-full px-4">
       {/* Top box */}
-      <div className="col-span-4 row-span-1 bg-purple-400 flex items-center justify-between">
-        <h2 className="text-2xl">Good morning, Anton!</h2>
+      <div className="col-span-4 row-span-1  flex items-center justify-between">
+        <h2 className="flex text-4xl font-bebas ">Good morning, Anton!<Sun className="ml-2 text-yellow-500"/></h2>
         <button className="bg-black mr-4 py-4 px-8 rounded-full text-white">
           Upgrade
         </button>
       </div>
 
       {/* Box 1 */}
-      <div className="col-span-3 row-span-4 bg-blue-400 rounded-lg overflow-hidden relative flex cursor-pointer">
-        <div className="w-2/5 bg-gradient-to-r from-black to-transparent text-white flex justify-center items-center p-4 absolute left-0 top-0 bottom-0 z-10">
-          <h3 className="text-5xl font-semibold pl-8 ">
+      <div className="col-span-3 row-span-4 rounded-lg overflow-hidden relative flex cursor-pointer">
+        <div className="w-3/5 bg-gradient-to-r from-black to-transparent text-white flex justify-start items-center p-4 absolute left-0 top-0 bottom-0 z-10">
+          <h3 className="text-5xl font-semibold pl-4 ">
             {slides[currentSlide].text.map((line, index) => (
-              <div key={index}>{line}</div>
+              <div key={index}>
+                {line === "Green" ? (
+                  <span className="text-green-500 text-[70px]">{line}</span>
+                ) : line === "YOLK" ? (
+                  <span className="text-yellow-300 text-[80px]">{line}</span>
+                ) : (
+                  line
+                )}
+              </div>
             ))}
           </h3>
         </div>
@@ -101,9 +110,37 @@ function DashboardContent() {
       {/* Box 2 */}
       <div className="col-span-1 row-span-7 bg-red-400 rounded-lg">Box 2</div>
 
-      {/* Box 3, 4, 5 */}
-      <div className="bg-green-400 rounded-lg row-span-3">Box 3</div>
+      {/* Box 3 */}
+      <div className="bg-white rounded-lg row-span-3 p-4 flex flex-col gap-y-4">
+        {/* Review-stjärnor */}
+        <div className="flex gap-2 ">
+          {[...Array(4)].map((_, i) => (
+            <Star key={i} className="text-yellow-500 fill-yellow-500 w-8 h-8" />
+          ))}
+          <Star className="text-gray-300 w-8 h-8" />
+        </div>
+
+        <h4 className="text-xl font-bold">Try our new Running Tracker!</h4>
+        <p className="text-sm">
+          Track your runs, set goals, and analyze your progress with ease. Stay
+          motivated and improve your performance every day!
+        </p>
+
+        <div className="flex justify-between items-center mt-auto">
+          <p className="text-xs text-gray-400 flex">
+            <MessageSquareHeart className="w-5 h-5 mr-1" />
+            5000+ reviews
+          </p>
+          <button className="bg-black text-white py-2 px-4 rounded-full flex items-center self-end mt-auto">
+            More <ArrowRight className="ml-2 w-8 h-4" />
+          </button>
+        </div>
+      </div>
+
+      {/* Box 4 */}
       <div className="bg-yellow-400 rounded-lg row-span-3">Box 4</div>
+
+      {/* Box 5 */}
       <div className="bg-purple-400 rounded-lg row-span-3">Box 5</div>
     </div>
   );

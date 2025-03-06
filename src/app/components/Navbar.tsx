@@ -18,7 +18,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView }) => {
 
 
   return (
-    <nav className="w-[100px] flex flex-col bg-themegreen text-black rounded-tl-[60px] rounded-bl-[60px]">
+    <nav className="w-[100px] flex flex-col bg-themegreen text-black rounded-tl-[40px] rounded-bl-[40px]">
       
       <div className=" flex justify-center w-full px-6 pt-6 ">
         <Image src="/FBicon.png" alt="Logo" width={100} height={100} /> 
