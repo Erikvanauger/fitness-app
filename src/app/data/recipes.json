@@ -1,0 +1,78 @@
+[
+    {
+        "id": 1,
+        "title": "Citrus & Herb Chicken",
+        "image": "/public/ChickenSalad.jpg",
+        "description": "A flavorful and spicy chicken curry with coconut milk.",
+        "tags": [
+            "spicy",
+            "chicken"
+        ],
+        "link": "/recipes/spicy-chicken-curry",
+        "ingredients": [
+            "500g chicken breast",
+            "2 tbsp curry powder",
+            "1 can coconut milk",
+            "1 onion, chopped",
+            "2 cloves garlic, minced",
+            "1 tbsp olive oil",
+            "Salt & pepper to taste"
+        ],
+        "steps": [
+            "Heat oil in a pan and sauté onions and garlic until soft.",
+            "Add the chicken and cook until browned.",
+            "Stir in the curry powder and mix well.",
+            "Pour in the coconut milk and let it simmer for 15 minutes.",
+            "Season with salt and pepper, then serve with rice."
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Grilled Salmon with Lemon",
+        "image": "/images/grilled-salmon.jpg",
+        "description": "A healthy and delicious grilled salmon dish with lemon zest.",
+        "tags": [
+            "fish",
+            "mild"
+        ],
+        "link": "/recipes/grilled-salmon",
+        "ingredients": [
+            "2 salmon fillets",
+            "1 lemon, sliced",
+            "2 tbsp olive oil",
+            "Salt & pepper to taste"
+        ],
+        "steps": [
+            "Preheat the grill to medium heat.",
+            "Brush the salmon fillets with olive oil and season with salt and pepper.",
+            "Place lemon slices on top of the salmon.",
+            "Grill for 5-7 minutes on each side until cooked through.",
+            "Serve with a side of steamed vegetables."
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Vegetarian Stir Fry",
+        "image": "/images/vegetarian-stir-fry.jpg",
+        "description": "A mix of fresh vegetables stir-fried with soy sauce and tofu.",
+        "tags": [
+            "mild",
+            "vegetarian"
+        ],
+        "link": "/recipes/vegetarian-stir-fry",
+        "ingredients": [
+            "2 cups mixed vegetables (bell peppers, broccoli, carrots)",
+            "1 block tofu, cubed",
+            "2 tbsp soy sauce",
+            "1 tbsp sesame oil",
+            "1 clove garlic, minced"
+        ],
+        "steps": [
+            "Heat sesame oil in a pan and sauté garlic until fragrant.",
+            "Add the mixed vegetables and stir-fry for 3-4 minutes.",
+            "Add tofu and soy sauce, then cook for an additional 5 minutes.",
+            "Serve hot over rice or noodles."
+        ]
+    }
+    
+]

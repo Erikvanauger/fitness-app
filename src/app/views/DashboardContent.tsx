@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { ArrowRight, Star, MessageSquareHeart, Sun } from "lucide-react";
+import recipeData from '../data/recipes.json';
 
 function DashboardContent() {
   const slides = [
@@ -108,7 +109,18 @@ function DashboardContent() {
       </div>
 
       {/* Box 2 */}
-      <div className="col-span-1 row-span-7 bg-red-400 rounded-lg">Box 2</div>
+      <div className="col-span-1 row-span-7 bg-red-400 rounded-lg p-4">
+        <h2 className="text-xl font-bold">Todays Recipe Tip</h2>
+        {recipeData.map(recipe => (
+          <div key={recipe.id} className="mb-4 cursor-pointer">
+            <h3 className="text-lg font-semibold">{recipe.title}</h3>
+            <p>{recipe.description}</p>
+            <button className="mt-2 bg-white text-black rounded py-1 px-3">
+              View Recipe
+            </button>
+          </div>
+        ))}
+      </div>
 
       {/* Box 3 */}
       <div className="bg-white rounded-lg row-span-3 p-4 flex flex-col gap-y-4">
@@ -120,9 +132,11 @@ function DashboardContent() {
           <Star className="text-gray-300 w-8 h-8" />
         </div>
 
-        <h4 className="text-xl font-bold">Try our new Running Tracker!</h4>
-        <p className="text-sm">
-          Track your runs, set goals, and analyze your progress with ease. Stay
+        <div className="bg-blue-400 rounded-full px-4 py-2 border-2 border-black">
+          <h4 className="text-xl font-bold ">Try our new Running Tracker!</h4>
+        </div>
+        <p className="text-sm mt-2">
+          Track your runs, set goals, and analyze your progress with ease. <br /> Stay
           motivated and improve your performance every day!
         </p>
 
