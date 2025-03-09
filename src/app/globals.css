@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
@@ -29,5 +30,8 @@
 @layer components {
   .font-bebas {
     font-family: 'Bebas Neue', sans-serif;
+  }
+  .lilita-one-regular{
+    font-family: "Lilita One", sans-serif;
   }
 }

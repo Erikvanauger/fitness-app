@@ -2,77 +2,75 @@
     {
         "id": 1,
         "title": "Citrus & Herb Chicken",
-        "image": "/public/ChickenSalad.jpg",
+        "image": "/ChickenSalad.jpg",
         "description": "A flavorful and spicy chicken curry with coconut milk.",
         "tags": [
             "spicy",
             "chicken"
         ],
-        "link": "/recipes/spicy-chicken-curry",
+        "link": "/spicy-chicken-curry",
         "ingredients": [
             "500g chicken breast",
-            "2 tbsp curry powder",
-            "1 can coconut milk",
-            "1 onion, chopped",
-            "2 cloves garlic, minced",
-            "1 tbsp olive oil",
-            "Salt & pepper to taste"
+            "2 tsp lemon rind",
+            "3 tbsp lemon juice",
+            "3 tsp extra virgin olive oil",
+            "1 tbsp Dijon mustard",
+            "2 bunches asparagus",
+            "400g can cannellini beans",
+            "350g cherry tomato medley",
+            "75g baby spinach leaves",
+            "Lemon wedges"
         ],
         "steps": [
-            "Heat oil in a pan and sauté onions and garlic until soft.",
-            "Add the chicken and cook until browned.",
-            "Stir in the curry powder and mix well.",
-            "Pour in the coconut milk and let it simmer for 15 minutes.",
-            "Season with salt and pepper, then serve with rice."
+            "Combine the lemon rind and juice, mustard, tarragon, 1 tbs chives and 1 tsp olive oil in a shallow glass or ceramic dish. Add the chicken and turn to coat. Cover. Place in the fridge for 30 minutes to marinate. ",
+            "Preheat barbecue grill or chargrill on medium-high and grill the chicken for 2-3 minutes each side or until lightly charred and cooked through. Spray the asparagus lightly with oil and grill for 1-2 minutes each side or until lightly charred.",
+            "Meanwhile, place cannellini beans, tomato, celery, seeds, spinach and remaining chives in a bowl. Combine the extra lemon juice, extra mustard and remaining olive oil in a jug. ",
+            "Add the asparagus and lemon dressing to the cannellini bean mixture and gently toss to combine. Season. Divide salad and chicken among serving plates. Serve with lemon wedges. "
+        ],
+        "nutrition": [
+            "340cal",
+            "38.5g protein",
+            "10.7g fat",
+            "6.6g sugars",
+            "201.2mg sodium"
         ]
+        
     },
     {
         "id": 2,
-        "title": "Grilled Salmon with Lemon",
-        "image": "/images/grilled-salmon.jpg",
-        "description": "A healthy and delicious grilled salmon dish with lemon zest.",
+        "title": "Pepper Thyme Beef & Zucchini Salad",
+        "image": "/BeefSalad.jpg",
+        "description": "Up your salad game by cooking some veg on the barbie while you've got the steak, and in no time you'll have a easy low-carb dinner for those hot nights",
         "tags": [
             "fish",
             "mild"
         ],
         "link": "/recipes/grilled-salmon",
         "ingredients": [
-            "2 salmon fillets",
-            "1 lemon, sliced",
-            "2 tbsp olive oil",
-            "Salt & pepper to taste"
+            "2 Zucchini",
+            "250g Porterhouse Steak",
+            "1 tbsp Black pepper",
+            "1 tbsp Thyme",
+            "60ml Olive oil",
+            "2tbsp Red wine vinegar",
+            "2tsp Mustard",
+            "120g Spinach leaves",
+            "300g Roasted peppers",
+            "100g Blue Cheese"
         ],
         "steps": [
-            "Preheat the grill to medium heat.",
-            "Brush the salmon fillets with olive oil and season with salt and pepper.",
-            "Place lemon slices on top of the salmon.",
-            "Grill for 5-7 minutes on each side until cooked through.",
-            "Serve with a side of steamed vegetables."
-        ]
-    },
-    {
-        "id": 3,
-        "title": "Vegetarian Stir Fry",
-        "image": "/images/vegetarian-stir-fry.jpg",
-        "description": "A mix of fresh vegetables stir-fried with soy sauce and tofu.",
-        "tags": [
-            "mild",
-            "vegetarian"
+            "Heat a barbecue grill or chargrill on medium-high. Spray the zucchini slices with olive oil spray. Cook the zucchini slices on the grill for 1 min each side or until lightly charred. Transfer to a plate. ",
+            "Spray the steaks with olive oil spray. Sprinkle with the pepper and chopped thyme. Season with salt. Cook steaks on grill for 2-3 mins each side for medium or until cooked to your liking. Transfer to a plate and cover with foil to keep warm. Rest for 5 mins. Thinly slice.",
+            "Meanwhile, whisk the vinegar, oil and mustard in a small jug. Season. ",
+            "Place the zucchini, spinach, capsicum and blue cheese in a large bowl. Gently toss to combine. ",
+            "Divide the salad and steaks evenly among serving plates. Drizzle the salad with the dressing and sprinkle the steaks with thyme sprigs to serve. "
         ],
-        "link": "/recipes/vegetarian-stir-fry",
-        "ingredients": [
-            "2 cups mixed vegetables (bell peppers, broccoli, carrots)",
-            "1 block tofu, cubed",
-            "2 tbsp soy sauce",
-            "1 tbsp sesame oil",
-            "1 clove garlic, minced"
-        ],
-        "steps": [
-            "Heat sesame oil in a pan and sauté garlic until fragrant.",
-            "Add the mixed vegetables and stir-fry for 3-4 minutes.",
-            "Add tofu and soy sauce, then cook for an additional 5 minutes.",
-            "Serve hot over rice or noodles."
+        "nutrition": [
+            "875cal",
+            "55.7g protein",
+            "68g fat",
+            "4.1g sugars",
+            "722mg sodium"
         ]
     }
-    
 ]
