@@ -63,7 +63,7 @@ function DashboardContent() {
   // Renderar rätt innehåll baserat på currentView
   const renderContent = () => {
     if (currentView === "recipes") {
-      return <Recipes recipe={todaysRecipe} onBack={handleBackToDashboard} />;
+      return <Recipes recipes={recipeData} initialRecipeId={todaysRecipe.id} onBack={handleBackToDashboard} />;
     }
     return (
       <div className="grid grid-cols-4 grid-rows-8 gap-4 h-full px-4">
