@@ -48,7 +48,7 @@ function DashboardContent() {
   }, [instanceRef]);
 
   //New recipe per day
-  
+
   const todayIndex = new Date().getDate() % recipeData.length;
   const todaysRecipe = recipeData[todayIndex];
 
@@ -104,9 +104,9 @@ function DashboardContent() {
       </div>
 
       {/* Box 2 */}
-      <div className="col-span-1 row-span-7 bg-red-400 rounded-lg px-4 py-2">
-        <h2 className="text-xl font-bold">Todays Recipe</h2>
-        <div className="mb-4 ">
+      <div className="col-span-1 row-span-7 bg-red-400 rounded-lg px-4 py-2 flex flex-col">
+        <h2 className="text-xl font-bold text-center">Todays Recipe</h2>
+        <div className="mb-4 flex-grow">
           <h3 className="text-[2rem] font-medium lilita-one-regular">
             {todaysRecipe.title}
           </h3>
@@ -116,14 +116,27 @@ function DashboardContent() {
               alt={todaysRecipe.title}
               width={320}
               height={200}
-              className="object-cover rounded-lg"
+              className="object-cover rounded-lg "
             />
           </div>
-          <p>{todaysRecipe.description}</p>
-          <button
-            className="mt-2 bg-white text-black rounded py-1 px-3 cursor-pointer"
-            
-          >
+          <p className="my-4">{todaysRecipe.description}</p>
+
+          <div className="flex justify-center gap-2 mt-2">
+            {(todaysRecipe.smallboxes || []).map((box, index) => (
+              <div
+                key={index}
+                className={`px-3 py-1 rounded-md text-sm font-semibold text-white ${
+                  box.includes("cal") ? "bg-blue-500" : "bg-green-500"
+                }`}
+              >
+                {box}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex justify-end mt-auto">
+          <button className="bg-white text-black rounded py-1 px-3 cursor-pointer">
             View Recipe
           </button>
         </div>
