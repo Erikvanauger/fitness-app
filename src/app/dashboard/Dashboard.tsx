@@ -16,7 +16,7 @@ export function Dashboard() {
     switch (currentView) {
        case "dashboard":
       default:
-        return <DashboardContent />; 
+        return <DashboardContent setCurrentView={setCurrentView}/>; 
       case "calories":
         return <Calories />;
       case "calendar":

@@ -46,8 +46,12 @@
         "image": "/BeefSalad.jpg",
         "description": "Up your salad game by cooking some veg on the barbie while you've got the steak, and in no time you'll have a easy low-carb dinner for those hot nights",
         "tags": [
-            "fish",
-            "mild"
+            "beef",
+            "salad"
+        ],
+        "smallboxes": [
+            "875 cal",
+            "30 min"
         ],
         "link": "/recipes/grilled-salmon",
         "ingredients": [
@@ -84,7 +88,7 @@
         "description": "There's no need to overdo it. Salmon is the perfect fish to cook if you are low on time or just wants something delicious, yet simple.",
         "tags": [
             "fish",
-            "Salmon"
+            "salad"
         ],
         "smallboxes": [
             "617 cal",

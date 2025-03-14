@@ -1,6 +1,15 @@
-import React from "react";
+import React, { JSX } from "react";
 import recipesData from "../data/recipes.json"; 
 import Image from "next/image";
+import {Fish, Beef, Flame, Drumstick, Salad} from "lucide-react"
+
+const tagIcons: Record<string, JSX.Element> = {
+  fish: <Fish className="w-12 h-12 text-blue-500" />,
+  spicy: <Flame className="w-12 h-12 text-red-500" />,
+  chicken: <Drumstick className="w-12 h-12 text-yellow-500" />,
+  salad: <Salad className="w-12 h-12 text-green-500" />,
+  beef: <Beef className="w-12 h-12 text-red-400" />
+};
 
 
 function Recipes() {
@@ -21,12 +30,9 @@ function Recipes() {
             <p className="text-gray-600">{recipe.description}</p>
             <div className="mt-2 flex gap-2">
               {recipe.tags.map((tag, index) => (
-                <span
-                  key={index}
-                  className="px-2 py-1 bg-gray-200 text-sm rounded"
-                >
-                  {tag}
-                </span>
+                 <span key={index} className="p-2 bg-gray-200 rounded-md flex items-center justify-center">
+                 {tagIcons[tag] || <span className="text-xs">{tag}</span>}
+               </span>
               ))}
             </div>
           </div>
