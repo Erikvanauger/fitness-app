@@ -2,9 +2,11 @@ import { useState } from "react";
 import Navbar from "../components/Navbar"; 
 import Calendar from "../views/Calendar"; 
 import Calories from "../views/Calories";
-import Weight from "../views/Notifications";
 import Settings from "../views/Settings";
-import DashboardContent from "../views/DashboardContent"; // Importera din dashboard innehållskomponent
+import DashboardContent from "../views/DashboardContent"; 
+import Notifications from "../views/Notifications";
+import Recipes from "../views/Recipes";
+
 
 
 export function Dashboard() {
@@ -14,16 +16,17 @@ export function Dashboard() {
     switch (currentView) {
        case "dashboard":
       default:
-        return <DashboardContent />; // Din standardvy
+        return <DashboardContent />; 
       case "calories":
         return <Calories />;
       case "calendar":
         return <Calendar />;
       case "notifications":
-        return <Weight />;
+        return <Notifications />;
       case "settings":
-        return <Settings/>
-     
+        return <Settings/>;
+      case "recipes":
+        return <Recipes/>
     }
   };
 

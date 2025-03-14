@@ -4,10 +4,10 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { ArrowRight, Star, MessageSquareHeart, Sun } from "lucide-react";
 import recipeData from "../data/recipes.json";
-import Recipes from "./Recipes";
+
 
 function DashboardContent() {
-  const [currentView, setCurrentView] = useState("dashboard");
+  
   const slides = [
     {
       src: "/Food.jpg",
@@ -53,18 +53,8 @@ function DashboardContent() {
   const todayIndex = new Date().getDate() % recipeData.length;
   const todaysRecipe = recipeData[todayIndex];
 
-  const handleViewRecipe = () => {
-    setCurrentView("recipes"); 
-  };
-  const handleBackToDashboard = () => {
-    setCurrentView("dashboard");
-  };
-
-  // Renderar rätt innehåll baserat på currentView
+  
   const renderContent = () => {
-    if (currentView === "recipes") {
-      return <Recipes recipes={recipeData} initialRecipeId={todaysRecipe.id} onBack={handleBackToDashboard} />;
-    }
     return (
       <div className="grid grid-cols-4 grid-rows-8 gap-4 h-full px-4">
         {/* Top box */}
@@ -140,12 +130,6 @@ function DashboardContent() {
                 </div>
               ))}
             </div>
-          </div>
-
-          <div className="flex justify-end mt-auto">
-            <button className="bg-white text-black rounded py-1 px-3 cursor-pointer" onClick={handleViewRecipe}>
-              View Recipe
-            </button>
           </div>
         </div>
 

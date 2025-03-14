@@ -76,5 +76,44 @@
             "4.1g sugars",
             "722mg sodium"
         ]
+    },
+    {
+        "id": 3,
+        "title": "Baked Salmon",
+        "image": "/Salmon.jpg",
+        "description": "There's no need to overdo it. Salmon is the perfect fish to cook if you are low on time or just wants something delicious, yet simple.",
+        "tags": [
+            "fish",
+            "Salmon"
+        ],
+        "smallboxes": [
+            "617 cal",
+            "20 min"
+        ],
+        "link": "/baked-salmon",
+        "ingredients": [
+            "750g chat potatoes ",
+            "8 slices white bread",
+            "1/3 dl basil leaves",
+            "1/3 dl parmesan cheese ",
+            "1 1/2 tbsp olive oil",
+            "4 skinless salmon fillets",
+            "dressed salad leaves"
+        ],
+        "steps": [
+            "Preheat oven to 200°C. Lightly grease an oven tray. Grease a 6cm deep, 20cm x 28cm (base) baking dish with oil.  ",
+            "Place potatoes in a saucepan and cover with cold water. Bring to the boil over high heat. Cook for 10 minutes or until potatoes are tender. Drain. Place on prepared tray. Using a potato masher, partially squash potatoes. Spray with oil. ",
+            "Meanwhile, place bread in a food processor and process until roughly chopped. Add basil and parmesan. Process to a fine breadcrumb mixture. With motor still running, add oil and process until combined.  ",
+            "Place salmon, skin side down, in prepared dish. Sprinkle crumb mixture over top. ",
+            "Place potatoes in oven on top shelf and fish on the shelf below. Bake for 25 to 30 minutes (depending on thickness of fish) or until potatoes are golden and fish is cooked through. Serve with salad. "
+        ],
+        "nutrition": [
+            "617cal",
+            "41.7g protein",
+            "20g fat",
+            "4.6g sugars",
+            "1.5g sodium"
+        ]
+        
     }
 ]

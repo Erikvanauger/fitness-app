@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import {House, ChartNetwork, CalendarHeart, Bell, Settings, LogOut} from "lucide-react"
+import {House, ChartNetwork, CalendarHeart, Bell, Settings, LogOut, BookOpen} from "lucide-react"
 
 interface NavbarProps {
   setCurrentView: (view: string) => void; // Funktion för att uppdatera vy
@@ -8,14 +8,12 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ setCurrentView }) => {
   
-  const [activeView, setActiveView] = useState<string>("dashboard"); // Spårar vilken knapp som är vald
+  const [activeView, setActiveView] = useState<string>("dashboard"); 
 
   const handleViewChange = (view: string) => {
     setActiveView(view);
     setCurrentView(view);
   };
-
-
 
   return (
     <nav className="w-[100px] flex flex-col bg-themegreen text-black rounded-tl-[40px] rounded-bl-[40px]">
@@ -47,6 +45,14 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView }) => {
           ${activeView === "calendar" ? "bg-navselect w-[120px] rounded-r-full" : "hover:bg-navselect w-full"}
           `}>
           <CalendarHeart size={30} />
+        </button>
+
+        <button  
+          onClick={() => handleViewChange("recipes")} 
+          className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out 
+          ${activeView === "recipes" ? "bg-navselect w-[120px] rounded-r-full" : "hover:bg-navselect w-full"}
+          `}>
+          <BookOpen size={30} /> {/* Använd en ikon för recept */}
         </button>
       </div>
 

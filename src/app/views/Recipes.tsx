@@ -1,61 +1,39 @@
-
-import React, {useState} from "react";
+import React from "react";
+import recipesData from "../data/recipes.json"; 
 import Image from "next/image";
 
-interface Recipe {
-  id: number;
-  title: string;
-  image: string;
-  description: string;
-  tags: string[];
-  smallboxes?: string[];
-  link: string;
-  ingredients: string[];
-  steps: string[];
-  nutrition: string[];
-}
 
-interface RecipesProps {
-  recipes: Recipe[];
-  initialRecipeId: number;
-  onBack: () => void;
-}
-
-const Recipes: React.FC<RecipesProps> = ({ recipes, initialRecipeId, onBack }) => {
-  // Hitta index för det valda receptet
-  const initialIndex = recipes.findIndex(recipe => recipe.id === initialRecipeId);
-  const [currentIndex, setCurrentIndex] = useState(initialIndex);
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % recipes.length);
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + recipes.length) % recipes.length);
-  };
-
-  const currentRecipe = recipes[currentIndex];
-
+function Recipes() {
   return (
-    <div className="flex flex-col items-center">
-      <button onClick={onBack} className="mb-4 bg-gray-300 px-4 py-2 rounded self-start">
-        Back to Dashboard
-      </button>
-      <h2 className="text-center">{currentRecipe.title}</h2>
-      <Image src={currentRecipe.image} alt={currentRecipe.title} width={500} height={300} />
-      <p className="text-center">{currentRecipe.description}</p>
-      <p>{currentRecipe.ingredients}</p>
-      <p>{currentRecipe.steps}</p>
-
-      <div className="flex justify-center mt-4">
-        <button onClick={handlePrev} className="bg-gray-300 px-4 py-2 rounded mx-2">
-          Previous
-        </button>
-        <button onClick={handleNext} className="bg-gray-300 px-4 py-2 rounded mx-2">
-          Next
-        </button>
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4">Recipes</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {recipesData.map((recipe) => (
+          <div key={recipe.id} className="border p-4 rounded-lg shadow-md">
+            <Image
+              src={recipe.image}
+              alt={recipe.title}
+              className="w-full h-40 object-cover rounded-md mb-2"
+              width={300}
+              height={200}
+            />
+            <h2 className="text-xl font-semibold">{recipe.title}</h2>
+            <p className="text-gray-600">{recipe.description}</p>
+            <div className="mt-2 flex gap-2">
+              {recipe.tags.map((tag, index) => (
+                <span
+                  key={index}
+                  className="px-2 py-1 bg-gray-200 text-sm rounded"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
-};
+}
+
 export default Recipes;
