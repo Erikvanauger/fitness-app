@@ -6,6 +6,7 @@ import Settings from "../views/Settings";
 import DashboardContent from "../views/DashboardContent"; 
 import Notifications from "../views/Notifications";
 import Recipes from "../views/Recipes";
+import User from "../views/User";
 
 
 
@@ -27,6 +28,8 @@ export function Dashboard() {
         return <Settings/>;
       case "recipes":
         return <Recipes/>
+        case "user":
+        return <User/>
     }
   };
 

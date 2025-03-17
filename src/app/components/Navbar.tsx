@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import {House, ChartNetwork, CalendarHeart, Bell, Settings, LogOut, BookOpen} from "lucide-react"
+import {House, ChartNetwork, CalendarHeart, Bell, Settings, LogOut, BookOpen, CircleUserRound} from "lucide-react"
 
 interface NavbarProps {
   setCurrentView: (view: string) => void; // Funktion för att uppdatera vy
@@ -58,7 +58,6 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView }) => {
 
       {/* Split line */}
       <div className="border border-black/40 my-12 mx-6"></div>
-
       
       <div className="flex flex-col gap-2">
       <button 
@@ -78,6 +77,14 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView }) => {
         </button>
       </div>
 
+      <button  
+          onClick={() => handleViewChange("user")} 
+          className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out 
+          ${activeView === "recipes" ? "bg-navselect w-[120px] rounded-r-full" : "hover:bg-navselect w-full"}
+          `}>
+          <CircleUserRound size={30} /> {/* Använd en ikon för recept */}
+        </button>
+      
       <button onClick={() => setCurrentView("logout")} className="flex items-center justify-center mt-auto mb-12 p-4">
         <LogOut size={30} />
       </button>
