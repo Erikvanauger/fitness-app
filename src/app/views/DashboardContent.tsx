@@ -4,8 +4,8 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import {
   ArrowRight,
-  Star,
-  MessageSquareHeart,
+ /*  Star,
+  MessageSquareHeart, */
   Sun,
   Fish,
   Beef,
@@ -17,7 +17,7 @@ import {
 import recipeData from "../data/recipes.json";
 
 interface DashboardContentProps {
-  setCurrentView: (view: string) => void; // Typ för setCurrentView
+  setCurrentView: (view: string) => void; 
 }
 
 const DashboardContent: React.FC<DashboardContentProps> = ({
@@ -126,69 +126,73 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
           </div>
         </div>
 
-       {/* Box 2 */}
-<div className="col-span-1 row-span-7 bg-white rounded-lg flex flex-col h-full">
-  {/* Full-bredd svart header */}
-  <div className="bg-black w-full rounded-t-lg">
-    <h2 className="text-xl text-white font-bold text-center py-2">Todays Recipe</h2>
-  </div>
+        {/* Box 2 */}
+        <div className="col-span-1 row-span-7 bg-white rounded-lg flex flex-col h-full">
+          
+          <div className="bg-black w-full rounded-t-lg">
+            <h2 className="text-xl text-white font-bold text-center py-2">
+              Todays Recipe
+            </h2>
+          </div>
 
-  {/* Content med padding */}
-  <div className="px-4 py-2 flex-grow flex flex-col">
-    <h3 className="text-[3rem] font-medium lilita-one-regular text-center">
-      {todaysRecipe.title}
-    </h3>
+          {/* Content med padding */}
+          <div className="px-4 py-2 flex-grow flex flex-col">
+            <h3 className="text-[3rem] font-medium lilita-one-regular text-center">
+              {todaysRecipe.title}
+            </h3>
 
-    <div className="flex justify-center items-center">
-      <Image
-        src={todaysRecipe.image}
-        alt={todaysRecipe.title}
-        width={320}
-        height={200}
-        className="object-cover rounded-lg"
-      />
-    </div>
+            <div className="flex justify-center items-center">
+              <Image
+                src={todaysRecipe.image}
+                alt={todaysRecipe.title}
+                width={320}
+                height={200}
+                className="object-cover rounded-lg"
+              />
+            </div>
 
-    <p className="mt-4 mb-2">{todaysRecipe.description}</p>
+            <p className="mt-4 mb-2">{todaysRecipe.description}</p>
 
-    <div className="flex justify-center gap-2">
-      {(todaysRecipe.smallboxes || []).map((box, index) => (
-        <div
-          key={index}
-          className="flex items-center gap-1 px-3 py-1 rounded-md text-sm font-semibold text-white bg-gray-700"
-        >
-          {box.includes("cal") ? (
-            <Flame className="w-4 h-4 text-red-500" />
-          ) : (
-            <Timer className="w-4 h-4 text-blue-500" />
-          )}
-          {box}
+            <div className="flex justify-center gap-2">
+              {(todaysRecipe.smallboxes || []).map((box, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-1 px-3 py-1 rounded-md text-sm font-semibold text-white bg-gray-700"
+                >
+                  {box.includes("cal") ? (
+                    <Flame className="w-4 h-4 text-red-500" />
+                  ) : (
+                    <Timer className="w-4 h-4 text-blue-500" />
+                  )}
+                  {box}
+                </div>
+              ))}
+            </div>
+
+            <div className="flex gap-2 my-4 justify-center">
+              {todaysRecipe.tags.map((tag: string) => (
+                <span
+                  key={tag}
+                  className="bg-gray-100 p-2 rounded-2xl shadow border border-gray-400"
+                >
+                  {tagIcons[tag] || null}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <button
+            onClick={() => setCurrentView("recipes")}
+            className="bg-black text-white p-4 rounded-lg flex items-center justify-center mt-auto "
+          >
+            See All Recipes <ArrowRight className="ml-2 w-6 h-6" />
+          </button>
         </div>
-      ))}
-    </div>
-
-    <div className="flex gap-2 my-4 justify-center">
-      {todaysRecipe.tags.map((tag: string) => (
-        <span key={tag} className="bg-gray-100 p-2 rounded-2xl shadow border border-gray-400">
-          {tagIcons[tag] || null}
-        </span>
-      ))}
-    </div>
-  </div>
-
-  <button
-    onClick={() => setCurrentView("recipes")}
-    className="bg-black text-white p-4 rounded-full flex items-center justify-center mt-auto"
-  >
-    See All Recipes <ArrowRight className="ml-2 w-6 h-4" />
-  </button>
-</div>
-
 
         {/* Box 3 */}
         <div className="bg-white rounded-lg row-span-3 p-4 flex flex-col gap-y-4">
-          {/* Review-stars */}
-          <div className="flex gap-2 ">
+          
+          {/* <div className="flex gap-2 ">
             {[...Array(4)].map((_, i) => (
               <Star
                 key={i}
@@ -214,14 +218,14 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
             <button className="bg-black text-white py-2 px-4 rounded-full flex items-center self-end mt-auto">
               More <ArrowRight className="ml-2 w-8 h-4" />
             </button>
-          </div>
+          </div> */}
         </div>
 
         {/* Box 4 */}
-        <div className="bg-yellow-400 rounded-lg row-span-3">Box 4</div>
+        <div className="bg-white rounded-lg row-span-3">Box 4</div>
 
         {/* Box 5 */}
-        <div className="bg-purple-400 rounded-lg row-span-3">Box 5</div>
+        <div className="bg-white rounded-lg row-span-3">Box 5</div>
       </div>
     );
   };

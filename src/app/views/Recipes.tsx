@@ -22,9 +22,9 @@ function Recipes() {
             <Image
               src={recipe.image}
               alt={recipe.title}
-              className="w-full h-40 object-cover rounded-md mb-2 border border-black"
+              className="w-full h-80 object-cover rounded-md mb-2 "
               width={300}
-              height={200}
+              height={300}
             />
             <h2 className="text-xl font-semibold">{recipe.title}</h2>
             <p className="text-gray-600">{recipe.description}</p>

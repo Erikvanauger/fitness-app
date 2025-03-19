@@ -107,7 +107,7 @@ function User() {
         <input
           type="number"
           name="waterIntake"
-          placeholder="Dagligt vätskeintag (liter)"
+          placeholder="Daily water consumption (liter)"
           value={userData.waterIntake}
           onChange={handleChange}
           className="w-full p-2 border rounded"

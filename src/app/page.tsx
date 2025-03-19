@@ -15,12 +15,12 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-[url('/Bg.jpg')] bg-cover bg-center">
+    <div className="flex flex-col items-center justify-center h-screen">
       {!isLoggedIn ? (
         <>
-          <div className=" bg-black w-[98%] h-[98%] rounded-[50px]">
+          <div className=" bg-black w-full h-full">
             <div className="flex flex-col items-center justify-center h-full">
-              <h1 className="text-2xl font-bold">Logga in</h1>
+              <h1 className="text-2xl font-bold">Login</h1>
               <input
                 type="password"
                 value={password}
@@ -28,7 +28,7 @@ export default function LoginPage() {
                 className="border p-2 my-2 text-black"
               />
               <button onClick={handleLogin} className="bg-blue-500 text-white px-4 py-2">
-                Logga in
+                Login
               </button>
             </div>
           </div>
