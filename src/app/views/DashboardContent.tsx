@@ -4,8 +4,8 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import {
   ArrowRight,
- /*  Star,
-  MessageSquareHeart, */
+   Star,
+  MessageSquareHeart, 
   Sun,
   Fish,
   Beef,
@@ -21,7 +21,7 @@ interface DashboardContentProps {
 }
 
 const DashboardContent: React.FC<DashboardContentProps> = ({
-  setCurrentView,
+  /* setCurrentView, */
 }) => {
   const slides = [
     {
@@ -55,13 +55,13 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
     },
   });
 
-  const tagIcons: Record<string, JSX.Element> = {
+  /* const tagIcons: Record<string, JSX.Element> = {
     fish: <Fish className="w-12 h-12 text-blue-500" />,
     spicy: <Flame className="w-12 h-12 text-red-500" />,
     chicken: <Drumstick className="w-12 h-12 text-yellow-500" />,
     beef: <Beef className="w-12 h-12 text-red-400" />,
     salad: <Salad className="w-12 h-12 text-green-500" />,
-  };
+  }; */
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -71,8 +71,8 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
   }, [instanceRef]);
 
   // New recipe per day
-  const todayIndex = new Date().getDate() % recipeData.length;
-  const todaysRecipe = recipeData[todayIndex];
+  /* const todayIndex = new Date().getDate() % recipeData.length;
+  /* const todaysRecipe = recipeData[todayIndex]; */ 
 
   const renderContent = () => {
     return (
@@ -129,13 +129,13 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
         {/* Box 2 */}
         <div className="col-span-1 row-span-7 bg-white rounded-lg flex flex-col h-full">
           
-          <div className="bg-black w-full rounded-t-lg">
+          {/* <div className="bg-black w-full rounded-t-lg">
             <h2 className="text-xl text-white font-bold text-center py-2">
               Todays Recipe
             </h2>
           </div>
 
-          {/* Content med padding */}
+          
           <div className="px-4 py-2 flex-grow flex flex-col">
             <h3 className="text-[3rem] font-medium lilita-one-regular text-center">
               {todaysRecipe.title}
@@ -186,7 +186,7 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
             className="bg-black text-white p-4 rounded-lg flex items-center justify-center mt-auto "
           >
             See All Recipes <ArrowRight className="ml-2 w-6 h-6" />
-          </button>
+          </button> */}
         </div>
 
         {/* Box 3 */}

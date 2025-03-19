@@ -1,23 +1,21 @@
 import { useState } from "react";
-import Navbar from "../components/Navbar"; 
-import Calendar from "../views/Calendar"; 
+import Navbar from "../components/Navbar";
+import Calendar from "../views/Calendar";
 import Calories from "../views/Calories";
 import Settings from "../views/Settings";
-import DashboardContent from "../views/DashboardContent"; 
+import DashboardContent from "../views/DashboardContent";
 import Notifications from "../views/Notifications";
 import Recipes from "../views/Recipes";
 import User from "../views/User";
 
-
-
 export function Dashboard() {
-  const [currentView, setCurrentView] = useState("dashboard"); // Standardvy
+  const [currentView, setCurrentView] = useState("dashboard");
 
   const renderContent = () => {
     switch (currentView) {
-       case "dashboard":
+      case "dashboard":
       default:
-        return <DashboardContent setCurrentView={setCurrentView}/>; 
+        return <DashboardContent setCurrentView={setCurrentView} />;
       case "calories":
         return <Calories />;
       case "calendar":
@@ -25,22 +23,22 @@ export function Dashboard() {
       case "notifications":
         return <Notifications />;
       case "settings":
-        return <Settings/>;
+        return <Settings />;
       case "recipes":
-        return <Recipes/>
-        case "user":
-        return <User/>
+        return <Recipes />;
+      case "user":
+        return <User />;
     }
   };
 
   return (
-      <div className="flex w-full h-full bg-mainbg">
-        <Navbar setCurrentView={setCurrentView} />
-        <main className="flex-1 px-4 pb-4">
-          {renderContent()}
-        </main>
-      </div>
+    <div className="flex w-full h-full bg-mainbg">
+      <Navbar setCurrentView={setCurrentView} />
+      <main className="flex-1 px-2 sm:px-4 pb-4 pt-16 sm:pt-4">
+        {renderContent()}
+      </main>
+    </div>
   );
 }
 
-export default Dashboard
+export default Dashboard;
