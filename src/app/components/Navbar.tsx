@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import {
   House,
@@ -21,10 +21,38 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView }) => {
   const [activeView, setActiveView] = useState<string>("dashboard");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
+  // Handle body scroll locking
+  useEffect(() => {
+    if (isMenuOpen) {
+      // Save current scroll position
+      const scrollY = window.scrollY;
+      // Apply fixed positioning to body to prevent scrolling
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+    } else {
+      // Restore scroll position when menu closes
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+      }
+    }
+    
+    // Cleanup function to ensure body styles are reset
+    return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+    };
+  }, [isMenuOpen]);
+  
   const handleViewChange = (view: string) => {
     setActiveView(view);
     setCurrentView(view);
-    setIsMenuOpen(false); // Close menu after selection on mobile
+    setIsMenuOpen(false); 
   };
 
   const toggleMenu = () => {
@@ -52,8 +80,8 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView }) => {
       
       {/* Mobile Overlay Menu */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-themegreen z-40 flex flex-col items-center pt-16 sm:hidden">
-          <div className="flex justify-center w-full px-6 pt-6">
+        <div className="fixed inset-0 bg-themegreen z-40 flex flex-col items-center sm:hidden overflow-auto">
+          <div className="flex justify-center w-full px-6 pt-16">
             <Image
               src="/FBicon.png"
               alt="Logo"
@@ -63,7 +91,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView }) => {
             />
           </div>
           
-          <div className="flex flex-col items-center gap-8 mt-12 w-full">
+          <div className="flex flex-col items-center gap-8 mt-8 w-full pb-16">
             <button
               onClick={() => handleViewChange("dashboard")}
               className={`flex items-center justify-center p-4 w-4/5 rounded-full ${
@@ -139,7 +167,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView }) => {
             
             <button
               onClick={() => setCurrentView("logout")}
-              className="flex items-center justify-center p-4 w-4/5 rounded-full mt-auto mb-8"
+              className="flex items-center justify-center p-4 w-4/5 rounded-full mt-4"
             >
               <LogOut className="w-6 h-6 mr-4" />
               <span className="text-lg">Logout</span>
