@@ -1,37 +1,29 @@
 import React, { useState } from "react";
-
-interface UserData {
-  name: string;
-  age: string;
-  weight: string;
-  height: string;
-  gender: string;
-  goal: string;
-  waterIntake: string;
-  allergies: string[];
-}
+import { useUserData } from "../context/UserContext";
 
 const allergiesList = ["Gluten", "Laktose", "Nutts", "Seafood", "Eggs"];
 
 function User() {
-  const [userData, setUserData] = useState<UserData>({
-    name: "",
-    age: "",
-    weight: "",
-    height: "",
-    gender: "",
-    goal: "",
-    waterIntake: "",
-    allergies: [],
+  const { userData, setUserData } = useUserData();
+  const [formData, setFormData] = useState({
+    name: userData.name || "",
+    age: userData.age || "",
+    weight: userData.weight || "",
+    height: userData.height || "",
+    gender: userData.gender || "",
+    goal: userData.goal || "",
+    waterIntake: userData.waterIntake || "",
+    allergies: userData.allergies || [],
   });
+  const [saved, setSaved] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setUserData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleAllergyChange = (allergy: string) => {
-    setUserData((prev) => ({
+    setFormData((prev) => ({
       ...prev,
       allergies: prev.allergies.includes(allergy)
         ? prev.allergies.filter((a) => a !== allergy)
@@ -39,20 +31,76 @@ function User() {
     }));
   };
 
+  // Calculate daily calories based on user data
+  const calculateDailyCalories = () => {
+    if (!formData.weight || !formData.height || !formData.age || !formData.gender) {
+      return 0;
+    }
+
+    // Mifflin-St Jeor Equation for BMR calculation
+    const weight = parseFloat(formData.weight);
+    const height = parseFloat(formData.height);
+    const age = parseFloat(formData.age);
+    let bmr = 0;
+
+    if (formData.gender === "male") {
+      bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+    } else {
+      bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+    }
+
+    // Adjust based on activity level (using 1.375 as moderate activity)
+    let tdee = bmr * 1.375;
+
+    // Adjust based on goal
+    switch (formData.goal) {
+      case "weight_loss":
+        tdee -= 500; // for weight loss
+        break;
+      case "muscle_gain":
+        tdee += 300; // muscle gain
+        break;
+      default:
+        break;
+    }
+
+    return Math.round(tdee);
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("User Data:", userData);
+    
+    // Calculate daily calories
+    const dailyCalories = calculateDailyCalories();
+    
+    // Update context with form data + calculated calories
+    setUserData({
+      ...userData,
+      ...formData,
+      dailyCalories,
+      lastUpdated: new Date().toISOString()
+    });
+    
+    // Show saved message
+    setSaved(true);
+    setTimeout(() => setSaved(false), 3000);
   };
 
   return (
     <div className="max-w-lg mx-auto mt-10 bg-white p-6 rounded-xl shadow-lg">
       <h2 className="text-2xl font-bold text-center mb-4">Your Profile</h2>
+      {saved && (
+        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+          Profile saved successfully!
+        </div>
+      )}
+      
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
           name="name"
           placeholder="Name"
-          value={userData.name}
+          value={formData.name}
           onChange={handleChange}
           className="w-full p-2 border rounded"
         />
@@ -60,7 +108,7 @@ function User() {
           type="number"
           name="age"
           placeholder="Age"
-          value={userData.age}
+          value={formData.age}
           onChange={handleChange}
           className="w-full p-2 border rounded"
         />
@@ -68,7 +116,7 @@ function User() {
           type="number"
           name="weight"
           placeholder="Weight (kg)"
-          value={userData.weight}
+          value={formData.weight}
           onChange={handleChange}
           className="w-full p-2 border rounded"
         />
@@ -76,14 +124,14 @@ function User() {
           type="number"
           name="height"
           placeholder="Length (cm)"
-          value={userData.height}
+          value={formData.height}
           onChange={handleChange}
           className="w-full p-2 border rounded"
         />
 
         <select
           name="gender"
-          value={userData.gender}
+          value={formData.gender}
           onChange={handleChange}
           className="w-full p-2 border rounded"
         >
@@ -94,7 +142,7 @@ function User() {
 
         <select
           name="goal"
-          value={userData.goal}
+          value={formData.goal}
           onChange={handleChange}
           className="w-full p-2 border rounded"
         >
@@ -108,7 +156,7 @@ function User() {
           type="number"
           name="waterIntake"
           placeholder="Daily water consumption (liter)"
-          value={userData.waterIntake}
+          value={formData.waterIntake}
           onChange={handleChange}
           className="w-full p-2 border rounded"
         />
@@ -120,12 +168,12 @@ function User() {
               <label
                 key={allergy}
                 className={`flex items-center gap-2 p-2 border rounded cursor-pointer ${
-                  userData.allergies.includes(allergy) ? "bg-blue-200" : "bg-gray-100"
+                  formData.allergies.includes(allergy) ? "bg-blue-200" : "bg-gray-100"
                 }`}
               >
                 <input
                   type="checkbox"
-                  checked={userData.allergies.includes(allergy)}
+                  checked={formData.allergies.includes(allergy)}
                   onChange={() => handleAllergyChange(allergy)}
                   className="hidden"
                 />

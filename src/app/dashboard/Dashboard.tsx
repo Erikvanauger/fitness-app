@@ -7,6 +7,7 @@ import DashboardContent from "../views/DashboardContent";
 import Notifications from "../views/Notifications";
 import Recipes from "../views/Recipes";
 import User from "../views/User";
+import { UserProvider } from "../context/UserContext";
 
 export function Dashboard() {
   const [currentView, setCurrentView] = useState("dashboard");
@@ -32,12 +33,14 @@ export function Dashboard() {
   };
 
   return (
-    <div className="flex w-full h-full bg-mainbg">
-      <Navbar setCurrentView={setCurrentView} />
-      <main className="flex-1 overflow-y-auto px-2 sm:px-4 pb-4 pt-16 sm:pt-4">
-        {renderContent()}
-      </main>
-    </div>
+    <UserProvider>
+      <div className="flex w-full h-full bg-mainbg">
+        <Navbar setCurrentView={setCurrentView} />
+        <main className="flex-1 px-2 sm:px-4 pb-4 pt-16 sm:pt-4">
+          {renderContent()}
+        </main>
+      </div>
+    </UserProvider>
   );
 }
 
