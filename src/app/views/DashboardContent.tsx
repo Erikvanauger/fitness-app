@@ -150,6 +150,7 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
                 Track your runs, set goals, and analyze your progress with ease.{" "}
                 <br className="hidden md:block" /> Stay motivated and improve your performance every day!
               </p>
+              
 
               <div className="flex justify-between items-center mt-auto">
                 <p className="text-xs text-gray-400 flex items-center">
