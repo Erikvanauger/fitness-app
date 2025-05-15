@@ -35,7 +35,7 @@ export function Dashboard() {
   return (
     <UserProvider>
       <div className="flex w-full h-full bg-mainbg">
-        <Navbar setCurrentView={setCurrentView} />
+        <Navbar setCurrentView={setCurrentView}/>
         <main className="flex-1 px-2 sm:px-4 pb-4 pt-16 sm:pt-4">
           {renderContent()}
         </main>

@@ -17,7 +17,7 @@ interface NavbarProps {
   setCurrentView: (view: string) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ setCurrentView }) => {
+const Navbar: React.FC<NavbarProps> = ({ setCurrentView}) => {
   const [activeView, setActiveView] = useState<string>("dashboard");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   

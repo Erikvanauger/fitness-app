@@ -15,6 +15,7 @@ import {
   Timer,
 } from "lucide-react";
 import recipeData from "../data/recipes.json";
+import CaloriesPreview from "../components/CaloriesPreview";
 
 interface DashboardContentProps {
   setCurrentView: (view: string) => void; 
@@ -164,7 +165,9 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
             </div>
 
             {/* Box 4 */}
-            <div className="bg-white rounded-lg p-4 ">Box 4</div>
+            <div className="rounded-lg" onClick={() => setCurrentView("calories")}>
+              <CaloriesPreview/>
+            </div>
 
             {/* Box 5 */}
             <div className="bg-white rounded-lg p-4">Box 5</div>
