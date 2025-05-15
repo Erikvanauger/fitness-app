@@ -15,6 +15,7 @@ import {
   Timer,
 } from "lucide-react";
 import recipeData from "../data/recipes.json";
+import { useUserData } from "../context/UserContext";
 import CaloriesPreview from "../components/CaloriesPreview";
 
 interface DashboardContentProps {
@@ -24,6 +25,9 @@ interface DashboardContentProps {
 const DashboardContent: React.FC<DashboardContentProps> = ({
   setCurrentView,
 }) => {
+  const { userData } = useUserData();
+  const name = userData.name || "Guest";
+  
   const slides = [
     {
       src: "/Food.jpg",
@@ -81,7 +85,7 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
         {/* Top box */}
         <div className="col-span-1 md:col-span-4 flex items-center justify-between mb-2 md:mb-0">
           <h2 className="flex text-2xl md:text-4xl font-bebas">
-            Good morning, Anton!
+            Good morning, {name}!
             <Sun className="ml-2 text-yellow-500" />
           </h2>
           <button className="bg-black mr-2 md:mr-4 py-2 md:py-4 px-4 md:px-8 rounded-full text-white text-sm md:text-base">
