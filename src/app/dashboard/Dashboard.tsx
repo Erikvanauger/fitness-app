@@ -10,6 +10,7 @@ import User from "../views/User";
 import { UserProvider } from "../context/UserContext";
 
 export function Dashboard() {
+  // This state is now the single source of truth for current view
   const [currentView, setCurrentView] = useState("dashboard");
 
   const renderContent = () => {
@@ -35,7 +36,10 @@ export function Dashboard() {
   return (
     <UserProvider>
       <div className="flex w-full h-full bg-mainbg">
-        <Navbar setCurrentView={setCurrentView}/>
+        <Navbar 
+          setCurrentView={setCurrentView} 
+          currentView={currentView} // Pass the current view to Navbar
+        />
         <main className="flex-1 px-2 sm:px-4 pb-4 pt-16 sm:pt-4">
           {renderContent()}
         </main>

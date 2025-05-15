@@ -15,10 +15,11 @@ import {
 
 interface NavbarProps {
   setCurrentView: (view: string) => void;
+  currentView: string; // Add prop for current view
 }
 
-const Navbar: React.FC<NavbarProps> = ({ setCurrentView}) => {
-  const [activeView, setActiveView] = useState<string>("dashboard");
+const Navbar: React.FC<NavbarProps> = ({ setCurrentView, currentView }) => {
+  // Use the parent component's current view instead of maintaining separate state
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   // Handle body scroll locking
@@ -50,7 +51,6 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView}) => {
   }, [isMenuOpen]);
   
   const handleViewChange = (view: string) => {
-    setActiveView(view);
     setCurrentView(view);
     setIsMenuOpen(false); 
   };
@@ -95,7 +95,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView}) => {
             <button
               onClick={() => handleViewChange("dashboard")}
               className={`flex items-center justify-center p-4 w-4/5 rounded-full ${
-                activeView === "dashboard" ? "bg-navselect" : ""
+                currentView === "dashboard" ? "bg-navselect" : ""
               }`}
             >
               <House className="w-6 h-6 mr-4" />
@@ -105,7 +105,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView}) => {
             <button
               onClick={() => handleViewChange("calories")}
               className={`flex items-center justify-center p-4 w-4/5 rounded-full ${
-                activeView === "calories" ? "bg-navselect" : ""
+                currentView === "calories" ? "bg-navselect" : ""
               }`}
             >
               <ChartNetwork className="w-6 h-6 mr-4" />
@@ -115,7 +115,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView}) => {
             <button
               onClick={() => handleViewChange("calendar")}
               className={`flex items-center justify-center p-4 w-4/5 rounded-full ${
-                activeView === "calendar" ? "bg-navselect" : ""
+                currentView === "calendar" ? "bg-navselect" : ""
               }`}
             >
               <CalendarHeart className="w-6 h-6 mr-4" />
@@ -125,7 +125,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView}) => {
             <button
               onClick={() => handleViewChange("recipes")}
               className={`flex items-center justify-center p-4 w-4/5 rounded-full ${
-                activeView === "recipes" ? "bg-navselect" : ""
+                currentView === "recipes" ? "bg-navselect" : ""
               }`}
             >
               <BookOpen className="w-6 h-6 mr-4" />
@@ -138,7 +138,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView}) => {
             <button
               onClick={() => handleViewChange("notifications")}
               className={`flex items-center justify-center p-4 w-4/5 rounded-full ${
-                activeView === "notifications" ? "bg-navselect" : ""
+                currentView === "notifications" ? "bg-navselect" : ""
               }`}
             >
               <Bell className="w-6 h-6 mr-4" />
@@ -148,7 +148,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView}) => {
             <button
               onClick={() => handleViewChange("settings")}
               className={`flex items-center justify-center p-4 w-4/5 rounded-full ${
-                activeView === "settings" ? "bg-navselect" : ""
+                currentView === "settings" ? "bg-navselect" : ""
               }`}
             >
               <Settings className="w-6 h-6 mr-4" />
@@ -158,7 +158,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView}) => {
             <button
               onClick={() => handleViewChange("user")}
               className={`flex items-center justify-center p-4 w-4/5 rounded-full ${
-                activeView === "user" ? "bg-navselect" : ""
+                currentView === "user" ? "bg-navselect" : ""
               }`}
             >
               <CircleUserRound className="w-6 h-6 mr-4" />
@@ -193,7 +193,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView}) => {
             onClick={() => handleViewChange("dashboard")}
             className={`flex items-center justify-center p-4 transition-[width] duration-400 ease-in-out 
             ${
-              activeView === "dashboard"
+              currentView === "dashboard"
                 ? "bg-navselect md:w-[100px] lg:w-[120px] rounded-r-full"
                 : "hover:bg-navselect w-full"
             }
@@ -206,7 +206,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView}) => {
             onClick={() => handleViewChange("calories")}
             className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out
             ${
-              activeView === "calories"
+              currentView === "calories"
                 ? "bg-navselect md:w-[100px] lg:w-[120px] rounded-r-full"
                 : "hover:bg-navselect w-full"
             }
@@ -219,7 +219,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView}) => {
             onClick={() => handleViewChange("calendar")}
             className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out
             ${
-              activeView === "calendar"
+              currentView === "calendar"
                 ? "bg-navselect md:w-[100px] lg:w-[120px] rounded-r-full"
                 : "hover:bg-navselect w-full"
             }
@@ -232,7 +232,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView}) => {
             onClick={() => handleViewChange("recipes")}
             className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out 
             ${
-              activeView === "recipes"
+              currentView === "recipes"
                 ? "bg-navselect md:w-[100px] lg:w-[120px] rounded-r-full"
                 : "hover:bg-navselect w-full"
             }
@@ -250,7 +250,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView}) => {
             onClick={() => handleViewChange("notifications")}
             className={`flex items-center justify-center p-4 transition-[width] duration-400 ease-in-out
             ${
-              activeView === "notifications"
+              currentView === "notifications"
                 ? "bg-navselect md:w-[100px] lg:w-[120px] rounded-r-full"
                 : "hover:bg-navselect w-full"
             }
@@ -263,7 +263,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView}) => {
             onClick={() => handleViewChange("settings")}
             className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out
             ${
-              activeView === "settings"
+              currentView === "settings"
                 ? "bg-navselect md:w-[100px] lg:w-[120px] rounded-r-full"
                 : "hover:bg-navselect w-full"
             }
@@ -277,7 +277,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView}) => {
           onClick={() => handleViewChange("user")}
           className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out 
             ${
-              activeView === "user"
+              currentView === "user"
                 ? "bg-navselect md:w-[100px] lg:w-[120px] rounded-r-full"
                 : "hover:bg-navselect w-full"
             }

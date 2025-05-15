@@ -36,7 +36,7 @@ const CaloriesPreview = () => {
         </p>
       </div>
 
-      <div className="text-xs text-blue-500 hover:underline mt-4 self-end">
+      <div className="text-xs text-blue-500 hover:underline mt-4 self-end cursor-pointer">
         View full tracker →
       </div>
     </div>
