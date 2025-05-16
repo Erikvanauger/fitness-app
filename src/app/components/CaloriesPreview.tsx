@@ -1,11 +1,35 @@
 import React from "react";
 import { useUserData } from "../context/UserContext";
-import { Flame } from "lucide-react";
+import { Flame, User, ArrowRight } from "lucide-react";
 
 const CaloriesPreview = () => {
   const { userData } = useUserData();
 
-  if (!userData.dailyCalories) return null;
+  // Show profile completion CTA if no user data
+  if (!userData.dailyCalories) {
+    return (
+      <div className="bg-white p-4 rounded-lg shadow-md h-full flex flex-col justify-between">
+        <div>
+          <h3 className="text-lg font-semibold mb-2 flex items-center">
+            <Flame className="text-orange-500 mr-2" /> Calories
+          </h3>
+
+          <div className="flex justify-center items-center h-full">
+            <div className="p-3 bg-gray-100 rounded-lg text-center fl">
+              <User className="mx-auto text-gray-400 mb-2 w-12 h-12" />
+              <p className="text-sm text-gray-600 mb-2">
+                Complete your profile to track calories
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="text-xs text-blue-500 hover:underline mt-4 self-end cursor-pointer flex items-center">
+          Complete profile <ArrowRight className="w-3.5 h-3.5 ml-1" />
+        </div>
+      </div>
+    );
+  }
 
   const { consumedCalories, dailyCalories } = userData;
   const remaining = dailyCalories - consumedCalories;

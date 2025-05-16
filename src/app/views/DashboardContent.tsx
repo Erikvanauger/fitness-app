@@ -3,9 +3,7 @@ import Image from "next/image";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import {
-  ArrowRight,
-  Star,
-  MessageSquareHeart, 
+  ArrowRight, 
   Sun,
   Fish,
   Beef,
@@ -114,6 +112,15 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
   const dailySteps = userData.dailySteps || 0;
   const stepGoal = userData.stepGoal || 10000;
   const stepPercentage = stepGoal > 0 ? (dailySteps / stepGoal) * 100 : 0;
+
+  // Handle calories widget click based on user data
+  const handleCaloriesClick = () => {
+    if (!userData.dailyCalories) {
+      setCurrentView("user"); // Navigate to user profile if no data
+    } else {
+      setCurrentView("calories"); // Otherwise go to calories tracker
+    }
+  };
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-4 h-full px-4">
@@ -266,7 +273,7 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
           {/* Box 4 - Calories preview */}
           <div 
             className="rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" 
-            onClick={() => setCurrentView("calories")}
+            onClick={handleCaloriesClick}
           >
             <CaloriesPreview />
           </div>
