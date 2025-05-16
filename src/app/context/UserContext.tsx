@@ -13,6 +13,9 @@ interface UserData {
   dailyCalories: number;
   consumedCalories: number;
   lastUpdated: string;
+  dailySteps: number;
+  stepGoal: number;
+  currentWaterIntake: number;
 }
 
 interface UserContextType {
@@ -32,7 +35,10 @@ const defaultUserData: UserData = {
   allergies: [],
   dailyCalories: 0,
   consumedCalories: 0,
-  lastUpdated: ""
+  lastUpdated: "",
+  dailySteps: 0,
+  stepGoal: 10000,
+  currentWaterIntake: 0,
 };
 
 const UserContext = createContext<UserContextType | undefined>(undefined);

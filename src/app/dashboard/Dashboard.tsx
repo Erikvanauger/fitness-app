@@ -38,9 +38,9 @@ export function Dashboard() {
       <div className="flex w-full h-full bg-mainbg">
         <Navbar 
           setCurrentView={setCurrentView} 
-          currentView={currentView} // Pass the current view to Navbar
+          currentView={currentView} 
         />
-        <main className="flex-1 px-2 sm:px-4 pb-4 pt-16 sm:pt-4">
+        <main className="flex-1 overflow-y-auto px-2 sm:px-4 pb-4 pt-16 sm:pt-4">
           {renderContent()}
         </main>
       </div>
