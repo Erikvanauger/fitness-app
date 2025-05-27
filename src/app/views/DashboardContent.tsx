@@ -118,7 +118,6 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
     return new Date().toLocaleDateString("en-US", options);
   };
 
-  //kommentera ut om inte det funkar med tom användare
 
   // Handle calories click based on user data
   const handleCaloriesClick = () => {
