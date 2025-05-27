@@ -11,13 +11,23 @@ export default {
       colors: {
         background: "#373737",
         foreground: "var(--foreground)",
-        themegreen: "#9FFFAB",
-        navselect: "#6FB878",
-        mainbg:"#D8F6FF",
+        // Updated navbar color - slightly deeper for better contrast
+        themegreen: "#7DFFA3",
+        // Enhanced selection color with more depth
+        navselect: "#059669",
+        // New background that matches login theme
+        mainbg: "#F0FDFF", // Very light teal/mint
+        // Additional colors to match login aesthetic
+        
       },
       fontFamily: {
-        sans: ["Poppins", ],
+        sans: ["Poppins"],
       },
+      backgroundImage: {
+        // Custom gradients matching login page
+        'wellness-gradient': 'linear-gradient(135deg, #064e3b 0%, #0f766e 50%, #065f46 100%)',
+        'light-wellness': 'linear-gradient(135deg, #ecfdf5 0%, #f0fdfa 100%)',
+      }
     },
   },
   plugins: [],

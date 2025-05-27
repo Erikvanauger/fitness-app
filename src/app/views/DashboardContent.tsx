@@ -13,7 +13,7 @@ import {
   Timer,
   ChevronLeft,
   ChevronRight,
-  Utensils,
+  Utensils
 } from "lucide-react";
 import recipeData from "../data/recipes.json";
 import CaloriesPreview from "../components/CaloriesPreview";
@@ -133,19 +133,19 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
       {/* Top box */}
       <div className="col-span-1 md:col-span-4 flex flex-col sm:flex-row items-start sm:items-center justify-between mb-2 md:mb-0">
         <div>
-          <h2 className="flex text-2xl md:text-4xl font-bold">
+          <h2 className="flex text-2xl md:text-3xl font-bold">
             {getGreeting()}, {userName}!
             <Sun className="ml-2 text-yellow-500" />
           </h2>
           <p className="text-gray-600 text-sm">{formattedDate()}</p>
         </div>
-        <button className="bg-black mr-2 md:mr-4 py-2 md:py-4 px-4 md:px-8 rounded-full text-white text-sm md:text-base mt-2 sm:mt-0">
+        <button className="bg-black flex mr-2 md:mr-4 py-2 md:py-4 px-4 md:px-8 rounded-full text-white text-sm md:text-base mt-2 sm:mt-0">
           Upgrade Pro
         </button>
       </div>
 
       {/* Main content area */}
-      <div className="col-span-1 md:col-span-3 space-y-4">
+      <div className="col-span-1 md:col-span-3 space-y-4 mt-10">
         {/* Box 1 - Feature slider */}
         <div className="rounded-lg overflow-hidden relative flex cursor-pointer h-64 md:h-96 shadow-md">
           <div className="w-full md:w-3/5 bg-gradient-to-r from-black to-transparent text-white flex justify-start items-center p-4 absolute left-0 top-0 bottom-0 z-10">
@@ -240,13 +240,13 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
       {/* Box 2 - Today's recipe (sidebar) */}
       <div className="col-span-1 bg-white rounded-lg flex flex-col h-full mt-4 md:mt-0 shadow-md">
         <div className="bg-black w-full rounded-t-lg">
-          <h2 className="text-lg md:text-xl text-white font-bold text-center py-2 flex items-center justify-center">
+          <h2 className="text-sm md:text-md lg:text-xl sm:text-sm text-white font-bold text-center py-2 flex items-center justify-center">
             <Utensils className="mr-2" /> Todays Recipe
           </h2>
         </div>
 
         <div className="px-3 md:px-4 py-2 flex-grow flex flex-col overflow-hidden">
-          <h3 className="text-2xl md:text-2xl lg:text-3xl font-bold text-center">
+          <h3 className="text-lg md:text-xl font-bold text-center">
             {todaysRecipe.title}
           </h3>
 

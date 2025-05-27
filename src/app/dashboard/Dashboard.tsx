@@ -35,13 +35,15 @@ export function Dashboard() {
 
   return (
     <UserProvider>
-      <div className="flex w-full min-h-screen bg-mainbg">
+      <div className="flex w-full h-screen bg-mainbg overfl">
         <Navbar 
           setCurrentView={setCurrentView} 
           currentView={currentView} 
         />
         <main className="flex-1 overflow-y-auto px-2 sm:px-4 pb-4 pt-16 sm:pt-4">
+          <div className="min-h-auto">
           {renderContent()}
+          </div>
         </main>
       </div>
     </UserProvider>
