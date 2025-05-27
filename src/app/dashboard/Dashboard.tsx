@@ -35,7 +35,7 @@ export function Dashboard() {
 
   return (
     <UserProvider>
-      <div className="flex w-full h-full bg-mainbg">
+      <div className="flex w-full min-h-screen bg-mainbg">
         <Navbar 
           setCurrentView={setCurrentView} 
           currentView={currentView} 
