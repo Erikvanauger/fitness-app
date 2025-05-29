@@ -147,7 +147,7 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
       {/* Main content area */}
       <div className="col-span-1 md:col-span-3 space-y-4 mt-10">
         {/* Box 1 - Feature slider */}
-        <div className="rounded-lg overflow-hidden relative flex cursor-pointer h-64 md:h-96 shadow-md">
+        <div className="rounded-lg overflow-hidden relative flex cursor-pointer h-64 md:h-[400px] lg:h-[480px] shadow-md">
           <div className="w-full md:w-3/5 bg-gradient-to-r from-black to-transparent text-white flex justify-start items-center p-4 absolute left-0 top-0 bottom-0 z-10">
             <h3 className="text-3xl md:text-5xl font-semibold pl-2 md:pl-4">
               {slides[currentSlide].text.map((line, index) => (
