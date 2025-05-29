@@ -81,19 +81,19 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
 
   const tagIcons: Record<string, JSX.Element> = {
     fish: (
-      <Fish className="w-8 h-8 md:w-8 md:h-8 lg:w-12 lg:h-12 text-blue-500" />
+      <Fish className="w-8 h-8 md:w-8 md:h-8 lg:w-10 lg:h-10 text-blue-500" />
     ),
     spicy: (
-      <Flame className="w-8 h-8 md:w-8 md:h-8 lg:w-12 lg:h-12 text-red-500" />
+      <Flame className="w-8 h-8 md:w-8 md:h-8 lg:w-10 lg:h-10 text-red-500" />
     ),
     chicken: (
-      <Drumstick className="w-8 h-8 md:w-8 md:h-8 lg:w-12 lg:h-12 text-yellow-500" />
+      <Drumstick className="w-8 h-8 md:w-8 md:h-8 lg:w-10 lg:h-10 text-yellow-500" />
     ),
     beef: (
-      <Beef className="w-8 h-8 md:w-8 md:h-8 lg:w-12 lg:h-12 text-red-400" />
+      <Beef className="w-8 h-8 md:w-8 md:h-8 lg:w-10 lg:h-10 text-red-400" />
     ),
     salad: (
-      <Salad className="w-8 h-8 md:w-8 md:h-8 lg:w-12 lg:h-12 text-green-500" />
+      <Salad className="w-8 h-8 md:w-8 md:h-8 lg:w-10 lg:h-10 text-green-500" />
     ),
   };
 
@@ -256,7 +256,7 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
               alt={todaysRecipe.title}
               width={280}
               height={180}
-              className="w-full object-cover rounded-lg h-40 md:h-44"
+              className="w-full object-cover rounded-lg md:h-35"
             />
             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 rounded-lg transition-all flex items-center justify-center">
               <button
@@ -276,7 +276,7 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
             {(todaysRecipe.smallboxes || []).map((box, index) => (
               <div
                 key={index}
-                className="flex items-center gap-1 px-3 py-1 rounded-md text-xs font-semibold text-white bg-gray-700"
+                className="flex items-center gap-1 px-3 py-1 rounded-md md:px-2 text-xs font-semibold text-white bg-gray-700"
               >
                 {box.includes("cal") ? (
                   <Flame className="w-3 h-3 text-red-500" />
@@ -288,7 +288,7 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
             ))}
           </div>
 
-          <div className="flex gap-2 my-3 justify-center">
+          <div className="flex md:space-x-2 lg:space-x-6 my-3 justify-center">
             {todaysRecipe.tags.map((tag: string) => (
               <span
                 key={tag}
@@ -300,7 +300,7 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
           </div>
 
           <div className="mt-4 bg-gray-100 p-3 rounded-lg">
-            <h4 className="font-medium text-sm mb-1">Main ingredients:</h4>
+            <h4 className="font-medium text-sm mb-1">Ingredients:</h4>
             <ul className="text-xs text-gray-700 pl-2">
               {todaysRecipe.ingredients.slice(0, 3).map((ingredient, index) => (
                 <li key={index} className="mb-1">
