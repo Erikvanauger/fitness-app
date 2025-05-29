@@ -177,7 +177,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView, currentView }) => {
       )}
       
       {/* Desktop Sidebar - Hidden on mobile */}
-      <nav className="hidden sm:flex w-[70px] md:w-[80px] lg:w-[100px] flex-col bg-themegreen text-black">
+      <nav className="hidden sm:flex w-[80px] md:w-[80px] lg:w-[100px] flex-col bg-themegreen text-black">
         <div className="flex justify-center w-full px-6 pt-6">
           <Image
             src="/FBicon.png"
@@ -194,7 +194,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView, currentView }) => {
             className={`flex items-center justify-center p-4 transition-[width] duration-400 ease-in-out 
             ${
               currentView === "dashboard"
-                ? "bg-gradient-to-r from-themegreen to-navselect md:w-[100px] lg:w-[120px] rounded-r-full"
+                ? "bg-gradient-to-r from-themegreen to-navselect sm:w-[100px] md:w-[100px] lg:w-[120px] rounded-r-full"
                 : "hover:bg-gradient-to-r from-themegreen to-navselect w-full"
             }
             `}
@@ -207,7 +207,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView, currentView }) => {
             className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out
             ${
               currentView === "calories"
-                ? "bg-gradient-to-r from-themegreen to-navselect md:w-[100px] lg:w-[120px] rounded-r-full"
+                ? "bg-gradient-to-r from-themegreen to-navselect sm:w-[100px] md:w-[100px] lg:w-[120px] rounded-r-full"
                 : "hover:bg-gradient-to-r from-themegreen to-navselect w-full"
             }
             `}
@@ -220,7 +220,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView, currentView }) => {
             className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out
             ${
               currentView === "calendar"
-                ? "bg-gradient-to-r from-themegreen to-navselect md:w-[100px] lg:w-[120px] rounded-r-full"
+                ? "bg-gradient-to-r from-themegreen to-navselect sm:w-[100px] md:w-[100px] lg:w-[120px] rounded-r-full"
                 : "hover:bg-gradient-to-r from-themegreen to-navselect w-full"
             }
             `}
@@ -233,7 +233,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView, currentView }) => {
             className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out 
             ${
               currentView === "recipes"
-                ? "bg-gradient-to-r from-themegreen to-navselect md:w-[100px] lg:w-[120px] rounded-r-full"
+                ? "bg-gradient-to-r from-themegreen to-navselect sm:w-[100px] md:w-[100px] lg:w-[120px] rounded-r-full"
                 : "hover:bg-gradient-to-r from-themegreen to-navselect w-full"
             }
             `}
@@ -243,7 +243,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView, currentView }) => {
         </div>
 
         {/* Split line */}
-        <div className="border border-black/40 my-12 mx-6"></div>
+        <div className="border border-black/40 my-8 mx-6"></div>
 
         <div className="flex flex-col gap-2">
           <button
@@ -251,7 +251,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView, currentView }) => {
             className={`flex items-center justify-center p-4 transition-[width] duration-400 ease-in-out
             ${
               currentView === "notifications"
-                ? "bg-gradient-to-r from-themegreen to-navselect md:w-[100px] lg:w-[120px] rounded-r-full"
+                ? "bg-gradient-to-r from-themegreen to-navselect sm:w-[100px] md:w-[100px] lg:w-[120px] rounded-r-full"
                 : "hover:bg-gradient-to-r from-themegreen to-navselect w-full"
             }
             `}
@@ -264,7 +264,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView, currentView }) => {
             className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out
             ${
               currentView === "settings"
-                ? "bg-gradient-to-r from-themegreen to-navselect md:w-[100px] lg:w-[120px] rounded-r-full"
+                ? "bg-gradient-to-r from-themegreen to-navselect sm:w-[100px] md:w-[100px] lg:w-[120px] rounded-r-full"
                 : "hover:bg-gradient-to-r from-themegreen to-navselect w-full"
             }
             `}
@@ -278,7 +278,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView, currentView }) => {
           className={`flex items-center justify-center p-4 mt-4 transition-[width] duration-400 ease-in-out 
             ${
               currentView === "user"
-                ? "bg-gradient-to-r from-themegreen to-navselect md:w-[100px] lg:w-[120px] rounded-r-full"
+                ? "bg-gradient-to-r from-themegreen to-navselect sm:w-[100px] md:w-[100px] lg:w-[120px] rounded-r-full"
                 : "hover:bg-gradient-to-r from-themegreen to-navselect w-full"
             }
             `}
@@ -288,7 +288,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentView, currentView }) => {
 
         <button
           onClick={() => setCurrentView("logout")}
-          className="flex items-center justify-center mt-auto mb-12 p-4"
+          className="flex items-center justify-center mt-auto mb-4 p-4"
         >
           <LogOut className="w-6 h-6 md:w-8 md:h-8" />
         </button>

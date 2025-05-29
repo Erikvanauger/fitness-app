@@ -8,7 +8,7 @@ const CaloriesPreview = () => {
   // Show profile completion CTA if no user data
   if (!userData.dailyCalories) {
     return (
-      <div className="bg-white p-4 rounded-lg shadow-md h-full flex flex-col justify-between">
+      <div className="bg-white p-4 rounded-lg h-full flex flex-col justify-between">
         <div>
           <h3 className="text-lg font-semibold mb-2 flex items-center">
             <Flame className="text-orange-500 mr-2" /> Calories
