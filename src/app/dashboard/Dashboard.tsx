@@ -19,7 +19,7 @@ export function Dashboard() {
       default:
         return <DashboardContent setCurrentView={setCurrentView} />;
       case "calories":
-        return <Calories />;
+        return <Calories setCurrentView={setCurrentView}/>;
       case "calendar":
         return <Calendar />;
       case "notifications":

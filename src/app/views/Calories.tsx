@@ -12,7 +12,11 @@ const foodItems = [
   { id: 6, name: "Greek Yogurt", calories: 100, protein: 10, carbs: 5, fat: 3 },
 ];
 
-function Calories() {
+interface CaloriesProps {
+  setCurrentView: (view: string) => void;
+}
+
+function Calories({setCurrentView}: CaloriesProps) {
   const { userData, updateConsumedCalories } = useUserData();
   const [selectedFood, setSelectedFood] = useState("");
   const [quantity, setQuantity] = useState(1);
@@ -44,7 +48,7 @@ function Calories() {
     setQuantity(1);
   };
 
-  //Reset calories
+  //Reset
   const resetTracker = () => {
     updateConsumedCalories(-userData.consumedCalories); // Nollställ till 0
     setMeals([]); // Töm måltiderna
@@ -65,9 +69,7 @@ function Calories() {
             personalized calorie tracking.
           </p>
           <button
-            onClick={() => {
-              /* Navigate to user profile */
-            }}
+            onClick={() => setCurrentView("user")}
             className="bg-blue-500 text-white px-6 py-2 rounded-lg flex items-center"
           >
             Go to Profile <ArrowRight className="ml-2" />
