@@ -22,12 +22,10 @@ interface CaloriesProps {
 }
 
 function Calories({ setCurrentView }: CaloriesProps) {
-  const { userData, updateConsumedCalories, setUserData } = useUserData();
+  const { userData, addMeal, addWaterEntry, removeWaterEntry, resetCalories, resetWater } = useUserData();
   const [selectedFood, setSelectedFood] = useState("");
   const [quantity, setQuantity] = useState(1);
-  const [meals, setMeals] = useState<{id: number, name: string, calories: number}[]>([]);
   const [waterAmount, setWaterAmount] = useState(0.25);
-  const [waterLog, setWaterLog] = useState<{id: number, amount: number, time: string}[]>([]);
 
   // Calculate remaining calories
   const remainingCalories = userData.dailyCalories - userData.consumedCalories;
@@ -46,15 +44,12 @@ function Calories({ setCurrentView }: CaloriesProps) {
     
     const totalCalories = food.calories * quantity;
     
-    // Add to meals list
-    setMeals(prev => [...prev, {
+    // Add meal using context method
+    addMeal({
       id: Date.now(),
       name: `${quantity}x ${food.name}`,
       calories: totalCalories
-    }]);
-    
-    // Update consumed calories in context
-    updateConsumedCalories(totalCalories);
+    });
     
     // Reset form
     setSelectedFood("");
@@ -73,44 +68,10 @@ function Calories({ setCurrentView }: CaloriesProps) {
       })
     };
     
-    setWaterLog(prev => [...prev, newWaterEntry]);
-    
-    // Update user data with new water intake
-    setUserData(prev => ({
-      ...prev,
-      currentWaterIntake: prev.currentWaterIntake + waterAmount
-    }));
+    addWaterEntry(newWaterEntry);
     
     // Reset water amount
     setWaterAmount(0.25);
-  };
-
-  const removeWaterEntry = (id: number) => {
-    const entry = waterLog.find(log => log.id === id);
-    if (!entry) return;
-    
-    // Remove from log
-    setWaterLog(prev => prev.filter(log => log.id !== id));
-    
-    // Update user data
-    setUserData(prev => ({
-      ...prev,
-      currentWaterIntake: Math.max(0, prev.currentWaterIntake - entry.amount)
-    }));
-  };
-
-  // Reset functions
-  const resetTracker = () => {
-    updateConsumedCalories(-userData.consumedCalories);
-    setMeals([]);
-  };
-
-  const resetWater = () => {
-    setUserData(prev => ({
-      ...prev,
-      currentWaterIntake: 0
-    }));
-    setWaterLog([]);
   };
 
   // Calculate progress percentage
@@ -214,11 +175,11 @@ function Calories({ setCurrentView }: CaloriesProps) {
 
             {/* Today's meals */}
             <h3 className="font-medium mb-2">Today's Meals</h3>
-            {meals.length === 0 ? (
+            {userData.todaysMeals.length === 0 ? (
               <p className="text-gray-500 text-sm">No meals added yet today</p>
             ) : (
               <div className="space-y-2 mb-4">
-                {meals.map((meal) => (
+                {userData.todaysMeals.map((meal) => (
                   <div
                     key={meal.id}
                     className="flex justify-between items-center p-2 bg-gray-100 rounded"
@@ -233,7 +194,7 @@ function Calories({ setCurrentView }: CaloriesProps) {
             )}
 
             <button
-              onClick={resetTracker}
+              onClick={resetCalories}
               className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded w-full"
             >
               Reset Calories
@@ -343,14 +304,14 @@ function Calories({ setCurrentView }: CaloriesProps) {
             </div>
 
             {/* Water Log */}
-            <h3 className="font-medium mb-2">Today's Water Log</h3>
-            {waterLog.length === 0 ? (
+            <h3 className="font-medium my-2">Today's Water Log</h3>
+            {userData.todaysWaterLog.length === 0 ? (
               <p className="text-gray-500 text-sm">
                 No water intake logged today
               </p>
             ) : (
               <div className="space-y-2 mb-4 max-h-32 overflow-y-auto">
-                {waterLog.map((entry) => (
+                {userData.todaysWaterLog.map((entry) => (
                   <div
                     key={entry.id}
                     className="flex justify-between items-center p-2 bg-cyan-50 rounded"

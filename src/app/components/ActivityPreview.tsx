@@ -47,7 +47,7 @@ const ActivityPreview: React.FC<ActivityPreviewProps> = ({
         </p>
       </div>
 
-      <div className="grid grid-cols-3 gap-2 mt-2">
+      <div className="flex justify-center gap-2 mt-2">
         <div className="text-center bg-gray-100 p-2 rounded-md">
           <p className="text-xs text-gray-600">Distance</p>
           <p className="text-sm font-semibold">
@@ -55,14 +55,10 @@ const ActivityPreview: React.FC<ActivityPreviewProps> = ({
           </p>
         </div>
         <div className="text-center bg-gray-100 p-2 rounded-md">
-          <p className="text-xs text-gray-600">Time</p>
-          <p className="text-sm font-semibold">
-            {Math.floor(dailySteps / 1000)} min
-          </p>
-        </div>
-        <div className="text-center bg-gray-100 p-2 rounded-md">
           <p className="text-xs text-gray-600">Burned</p>
-          <p className="text-sm font-semibold">{Math.floor(dailySteps / 20)} kcal</p>
+          <p className="text-sm font-semibold">
+            {Math.floor(dailySteps / 20)} kcal
+          </p>
         </div>
       </div>
     </div>
