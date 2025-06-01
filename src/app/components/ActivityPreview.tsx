@@ -36,9 +36,9 @@ const ActivityPreview: React.FC<ActivityPreviewProps> = ({
             {dailySteps.toLocaleString()} / {stepGoal.toLocaleString()}
           </span>
         </div>
-        <div className="w-full bg-blue-200 rounded-full h-2 mb-1">
+        <div className="w-full bg-blue-200 rounded-full h-4 mb-1">
           <div
-            className="h-2 rounded-full bg-blue-500"
+            className="h-4 rounded-full bg-blue-500"
             style={{ width: `${Math.min(stepPercentage, 100)}%` }}
           ></div>
         </div>

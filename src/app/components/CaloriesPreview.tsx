@@ -1,6 +1,6 @@
 import React from "react";
 import { useUserData } from "../context/UserContext";
-import { Flame, User, ArrowRight } from "lucide-react";
+import { Flame, User, ArrowRight, ArrowUpRight } from "lucide-react";
 
 const CaloriesPreview = () => {
   const { userData } = useUserData();
@@ -10,9 +10,9 @@ const CaloriesPreview = () => {
     return (
       <div className="bg-white p-4 rounded-lg h-full flex flex-col justify-between">
         <div>
-          <h3 className="text-lg font-semibold mb-2 flex items-center">
+          <h4 className="text-xl font-semibold mb-2 flex items-center">
             <Flame className="text-orange-500 mr-2" /> Calories
-          </h3>
+          </h4>
 
           <div className="flex justify-center items-center h-full">
             <div className="p-3 bg-gray-100 rounded-lg text-center fl">
@@ -38,30 +38,32 @@ const CaloriesPreview = () => {
     : 0;
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md h-full flex flex-col justify-between">
+    <div className="bg-white p-4 gap-y-2 md:gap-y-4 rounded-lg shadow-md h-full flex flex-col justify-between">
       <div>
-        <h3 className="text-lg font-semibold mb-2 flex items-center">
-          <Flame className="text-orange-500 mr-2" /> Calories
-        </h3>
-
-        <div className="text-sm mb-2">
-          <span className="font-medium">Consumed:</span> {consumedCalories} / {dailyCalories} kcal
+        <div className="flex justify-between items-center">
+          <h4 className=" text-lg md:text-xl font-semibold flex items-center">
+            <Flame className="text-orange-500 mr-2" /> Calories
+          </h4>
+          <ArrowUpRight className="text-gray-400 w-5 h-5" />
         </div>
 
-        <div className="w-full bg-gray-200 rounded-full h-3 mb-2">
-          <div 
-            className={`h-3 rounded-full ${remaining < 0 ? 'bg-red-500' : 'bg-green-500'}`} 
-            style={{ width: `${percentage}%` }}
-          ></div>
+        <div className="bg-orange-100 rounded-lg p-3 mt-6">
+          <div className="flex justify-between items-center mb-1">
+            <span className="text-sm font-medium">Consumed</span>
+            <span className="text-sm font-bold">
+              {consumedCalories} / {dailyCalories} kcal
+            </span>
+          </div>
+          <div className="w-full bg-orange-200 rounded-full h-4 mb-1">
+            <div 
+              className={`h-4 rounded-full ${remaining < 0 ? 'bg-red-500' : 'bg-orange-500'}`} 
+              style={{ width: `${percentage}%` }}
+            ></div>
+          </div>
+          <p className={`text-xs ${remaining < 0 ? 'text-red-600' : 'text-orange-700'}`}>
+            {remaining < 0 ? `${Math.abs(remaining)} kcal over` : `${remaining} kcal remaining`}
+          </p>
         </div>
-
-        <p className={`text-xs ${remaining < 0 ? 'text-red-500' : 'text-gray-600'}`}>
-          {remaining < 0 ? `${Math.abs(remaining)} kcal over` : `${remaining} kcal remaining`}
-        </p>
-      </div>
-
-      <div className="text-xs text-blue-500 hover:underline mt-4 self-end cursor-pointer">
-        View full tracker →
       </div>
     </div>
   );

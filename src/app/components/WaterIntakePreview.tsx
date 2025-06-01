@@ -33,9 +33,9 @@ const WaterIntakePreview: React.FC<WaterIntakePreviewProps> = ({
             {waterProgress.toFixed(1)} L / {waterGoal.toFixed(1)} L
           </span>
         </div>
-        <div className="w-full bg-cyan-200 rounded-full h-2 mb-1">
+        <div className="w-full bg-cyan-200 rounded-full h-4 mb-1">
           <div
-            className="h-2 rounded-full bg-cyan-500"
+            className="h-4 rounded-full bg-cyan-500"
             style={{ width: `${Math.min(progressPercentage, 100)}%` }}
           ></div>
         </div>
@@ -43,6 +43,7 @@ const WaterIntakePreview: React.FC<WaterIntakePreviewProps> = ({
           {Math.round(progressPercentage)}% of daily goal
         </p>
       </div>
+      
     </div>
   );
 };
