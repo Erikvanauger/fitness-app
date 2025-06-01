@@ -26,7 +26,8 @@ interface UserData {
   consumedCalories: number;
   currentWaterIntake: number;
   lastUpdated?: string;
-  // New persistent data
+  dailySteps:number;
+  stepGoal:number;
   todaysMeals: MealEntry[];
   todaysWaterLog: WaterEntry[];
 }
@@ -56,6 +57,8 @@ const defaultUserData: UserData = {
   currentWaterIntake: 0,
   todaysMeals: [],
   todaysWaterLog: [],
+  dailySteps:0,
+  stepGoal:0,
 };
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
