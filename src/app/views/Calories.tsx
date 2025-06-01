@@ -174,7 +174,7 @@ function Calories({ setCurrentView }: CaloriesProps) {
             </div>
 
             {/* Today's meals */}
-            <h3 className="font-medium mb-2">Today's Meals</h3>
+            <h3 className="font-medium mb-2">Todays Meals</h3>
             {userData.todaysMeals.length === 0 ? (
               <p className="text-gray-500 text-sm">No meals added yet today</p>
             ) : (
@@ -304,7 +304,7 @@ function Calories({ setCurrentView }: CaloriesProps) {
             </div>
 
             {/* Water Log */}
-            <h3 className="font-medium my-2">Today's Water Log</h3>
+            <h3 className="font-medium my-2">Todays Water Log</h3>
             {userData.todaysWaterLog.length === 0 ? (
               <p className="text-gray-500 text-sm">
                 No water intake logged today
