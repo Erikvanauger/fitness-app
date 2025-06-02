@@ -233,7 +233,10 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
           </div>
 
           {/* Box 5 - Water tracker */}
+          <div className="rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+          onClick={handleCaloriesClick}>
           <WaterIntakePreview setCurrentView={setCurrentView} />
+          </div>
         </div>
       </div>
 

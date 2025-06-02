@@ -37,7 +37,7 @@ function User() {
       return 0;
     }
 
-    // Mifflin-St Jeor Equation for BMR calculation
+    // Mifflin-St Jeor Equation for BMR 
     const weight = parseFloat(formData.weight);
     const height = parseFloat(formData.height);
     const age = parseFloat(formData.age);
@@ -49,16 +49,16 @@ function User() {
       bmr = 10 * weight + 6.25 * height - 5 * age - 161;
     }
 
-    // Adjust based on activity level (using 1.375 as moderate activity)
+    // Adjust based on activity level (using 1.375 as moderate activity for now)
     let tdee = bmr * 1.375;
 
     // Adjust based on goal
     switch (formData.goal) {
       case "weight_loss":
-        tdee -= 500; // for weight loss
+        tdee -= 500; 
         break;
       case "muscle_gain":
-        tdee += 300; // muscle gain
+        tdee += 300; 
         break;
       default:
         break;
