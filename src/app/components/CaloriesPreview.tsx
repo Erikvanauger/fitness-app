@@ -47,8 +47,8 @@ const CaloriesPreview = () => {
           <ArrowUpRight className="text-gray-400 w-5 h-5" />
         </div>
 
-        <div className="bg-orange-100 rounded-lg p-3 mt-6">
-          <div className="flex justify-between items-center mb-1">
+        <div className="bg-orange-100 rounded-lg p-3 mt-6 ">
+          <div className="flex justify-between items-center mb-1 md:flex-col lg:flex-row">
             <span className="text-sm font-medium">Consumed</span>
             <span className="text-sm font-bold">
               {consumedCalories} / {dailyCalories} kcal

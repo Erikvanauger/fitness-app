@@ -42,7 +42,7 @@ export default function LoginPage() {
           </div>
 
           {/* Login card */}
-          <div className="relative bg-white/10 backdrop-blur-lg rounded-3xl p-8 w-full max-w-md shadow-2xl border border-themegreen/20">
+          <div className="relative bg-white/10 backdrop-blur-lg rounded-3xl p-8 w-full max-w-md shadow-2xl border border-black/40">
             {/* Glassmorphism effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-themegreen/20 to-teal-400/5 rounded-3xl"></div>
 

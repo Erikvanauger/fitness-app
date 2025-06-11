@@ -49,7 +49,7 @@ function User() {
       bmr = 10 * weight + 6.25 * height - 5 * age - 161;
     }
 
-    // Adjust based on activity level (using 1.375 as moderate activity for now)
+    // Adjust based on activity level ( 1.375 is moderate activity)
     let tdee = bmr * 1.375;
 
     // Adjust based on goal

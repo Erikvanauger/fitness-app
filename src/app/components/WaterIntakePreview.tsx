@@ -54,7 +54,7 @@ const WaterIntakePreview: React.FC<WaterIntakePreviewProps> = ({
       </div>
 
       <div className="bg-cyan-100 rounded-lg p-3 mt-2">
-        <div className="flex justify-between items-center mb-1">
+        <div className="flex justify-between items-center mb-1 md:flex-col lg:flex-row">
           <span className="text-sm font-medium">Todays intake</span>
           <span className="text-sm font-bold">
             {waterProgress.toFixed(1)} L / {waterGoal.toFixed(1)} L
